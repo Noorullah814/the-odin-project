@@ -1,59 +1,61 @@
-function playGame() {
-    let humanScore = 0
-    let computerScore = 0
-    let tieScore = 0
-    let round = 0
 
-    for (let i = 0; i < 5; i++) {
+const container=document.querySelector(".action-container")
+const currentRound=document.querySelector(".current-round")
 
-        round++
-        const computer = getComputerChoice()
-        const human = getHumanChoice()
-        playRound(computer, human)
+const scoreBoard=document.querySelector(".scoreboard")
+const humanScore=document.createElement('p').textContent="0"
+const computerScore=document.createElement('p').textContent="0"
+const tie=document.createElement('p').textContent="0"
+const round=document.createElement('p')
 
-    }
 
-    if (humanScore === computerScore) {
-        console.log(`Match tie`)
-    }
-    else if (humanScore > computerScore) {
-        console.log(`Human wins with score of ${humanScore}`)
-    }
-    else {
-        console.log(`Computer wins with score of ${computerScore}`)
-    }
+    container.addEventListener("click",(event)=>{
 
-    console.log(`Overall result:\n HumanScore:${humanScore}\n ComputerScore:${computerScore}\n TotalTie:${tieScore}`)
+    const button = event.target.closest('button')
 
-    function playRound(computer, human) {
+    if (!button) return; 
+         
+        
+        const action = button.className;
+        let computerChoice=getComputerChoice()
+       playRound(computerChoice,action)
+        
+       round.textContent+=`${action}`
+  
+})
+
+
+
+function playRound(computer, human) {
+          
+            let youChoose=document.createElement('p')
+            let computerChoose=document.createElement('p')
+            let result=document.createElement('p')
+
+            youChoose.textContent=`You choose: ${human}`
+            computerChoose.textContent=`Computer Chose: ${computer}`
+            
+           
+   
         if ((human === "rock" && computer === "rock") || (human === "paper" && computer === "paper") || (human === "scissors" && computer === "scissors")) {
-            tieScore++
-            return console.log(`Round ${round}\nHuman: ${human}\nComputer: ${computer}\nResult: match tie`)
-
+           result.textContent="Result: Match tie"
         }
-        else if (human === "rock" && computer === "scissors") {
-            humanScore++
-            return console.log(`Round ${round}\nHuman: ${human}\nComputer: ${computer}\nResult: You win!`)
-
-        }
-        else if (human === "scissors" && computer === "paper") {
-            humanScore++
-            return console.log(`Round ${round}\nHuman: ${human}\nComputer: ${computer}\nResult: You win!`)
-        }
-        else if (human === "paper" && computer === "rock") {
-            humanScore++
-            return console.log(`Round ${round}\nHuman: ${human}\nComputer: ${computer}\nResult: You win!`)
+        else if ((human === "rock" && computer === "scissors")||(human === "scissors" && computer === "paper")||(human === "paper" && computer === "rock")) {
+            result.textContent="Result: You win!"
         }
         else  {
-            computerScore++
-            return console.log(`Round ${round}\nHuman: ${human}\nComputer: ${computer}\nResult: You lose!`)
+            result.textContent="Result: You lose!"
         }
-       
+
+         currentRound.innerHTML=''
+
+         currentRound.appendChild(youChoose)
+         currentRound.appendChild(computerChoose)
+         currentRound.appendChild(result) 
+         currentRound.appendChild(round)
     }
 
-}
-
-function getComputerChoice() {
+    function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3) + 1
 
     if (randomChoice === 1) {
@@ -72,19 +74,31 @@ function getComputerChoice() {
 }
 
 
-function getHumanChoice() {
-    while (true) {
-        let userChoice = prompt("Enter your choice (rock, paper, or scissors):").toLowerCase();
+// function playGame() {
+     
 
-        if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
+//     for (let i = 0; i < 5; i++) {
+//         playRound(computer, human)
+//     }
 
-            return userChoice;
-        }
-        else {
+//     if (humanScore === computerScore) {
+//         console.log(`Match tie`)
+//     }
+//     else if (humanScore > computerScore) {
+//         console.log(`Human wins with score of ${humanScore}`)
+//     }
+//     else {
+//         console.log(`Computer wins with score of ${computerScore}`)
+//     }
 
-            alert("Invalid choice! Please try again.");
-        }
-    }
-}
+//     console.log(`Overall result:\n HumanScore:${humanScore}\n ComputerScore:${computerScore}\n TotalTie:${tieScore}`)
 
-playGame()
+
+// }
+
+
+
+
+
+
+
