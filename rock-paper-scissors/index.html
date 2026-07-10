@@ -1,38 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Rock Paper Scissors</title>
+     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
+
     <header>
-        <h1 class="title">Rock Paper Scissors</h1>
+        <h1>Rock Paper Scissors</h1>
+        <p>Choose your weapon and try to defeat the computer in five rounds.</p>
     </header>
+
     <main>
-        <div class="description">Choose your weapon to begin the game.</div>
-        <div class="action-container">
-            <button class="rock">Rock</button>
-            <button class="paper">Paper</button>
-            <button class="scissors">Scissors</button>
-        </div>
-        <div class="current-round">
-          
-        </div>
-        <div class="scoreboard">
-            
-        </div>
-        <div class="final-result">
-              
-        </div>
+
+        <!-- Player Controls -->
+        <section class="game-controls" aria-label="Game Controls">
+
+            <h2>Choose Your Move</h2>
+
+            <div class="action-container">
+
+                <button
+                    class="rock"
+                    type="button">
+                    Rock
+                </button>
+
+                <button
+                    class="paper"
+                    type="button">
+                    Paper
+                </button>
+
+                <button
+                    class="scissors"
+                    type="button">
+                    Scissors
+                </button>
+
+            </div>
+
+        </section>
+
+    <div class="container">
+        <!-- Current Round -->
+        <section
+            class="current-round"
+            aria-label="Current Round">
+
+        </section>
+
+        
+        <!-- Scoreboard -->
+        <section
+            class="scoreboard"
+            aria-label="Scoreboard">
+
+        </section>
+
+        <!-- Final Result -->
+        <section
+            class="final-result"
+            aria-label="Final Result">
+
+        </section>
+    </div>
+
     </main>
+
     <footer>
-        <div>Built by NoOr Ullah - The Odin Project 2026</div>
+
+        <p>
+            Built by Noor Ullah • The Odin Project 2026
+        </p>
+
     </footer>
 
 </body>
-
 </html>
