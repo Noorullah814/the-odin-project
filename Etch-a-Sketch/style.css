@@ -1,0 +1,148 @@
+
+:root{
+    /* Backgrounds */
+    --bg: #0B1120;           /* Page background */
+    --surface: #111827;      /* Cards */
+    --surface-light: #1E293B;/* Slightly lighter */
+
+    /* Primary */
+    --primary: #4F8DFD;
+    --primary-hover: #3B82F6;
+
+    /* Borders */
+    --border: #2B364B;
+    --border-light: #334155;
+
+    /* Text */
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+
+    /* Status */
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+}
+
+
+body{
+    background-color:var(--bg);
+     font-family: inter,sans-serif;
+     font-size: 16px;
+     min-height:100vh;
+     display:flex;
+     flex-direction:column;
+}
+
+
+.heading{
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-primary);
+
+}
+
+.sub-heading{
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+}
+.grid-btn{
+    background-color: var(--primary);
+    color: var(--surface-light);
+    border-radius: 12px;
+    font-weight: 600;
+    transition: .25s ease;
+    padding: 14px 28px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79,141,253,.25);
+    
+}
+
+.grid-btn:hover{
+    background:var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+.grid-container{
+    display: flex;
+    flex-wrap: wrap;
+    height: 960px;
+    width: 960px;
+    background: #111827;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+    overflow: hidden;
+
+}
+
+footer{
+    margin-top: 32px;
+    border-top: 1px solid var(--border);
+    padding: 24px;
+}
+
+footer p{
+    color: var(--text-primary);
+    text-align: center;
+}
+
+@media (max-width:768px){
+
+    .heading{
+        font-size: 32px;
+    }
+
+    .sub-heading{
+        font-size: 12px;
+    }
+    
+    .grid-btn{
+        padding: 12px 20px;
+    }
+
+    .grid-container{
+        width: 560px;
+        height: 560px;
+    }
+
+     footer{
+        padding: 16px;
+    }
+}
+
+@media (max-width:480px)
+{
+     .heading{
+        font-size: 24px;
+    }
+
+    .sub-heading{
+        font-size: 8px;
+    }
+    
+    .grid-btn{
+       padding: 12px 20px;
+    }
+
+     .grid-container{
+        width: 360px;
+        height: 360px;
+    }
+
+    footer{
+        padding: 16px;
+    }
+}
