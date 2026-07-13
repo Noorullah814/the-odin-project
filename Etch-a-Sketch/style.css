@@ -116,6 +116,7 @@ footer p{
     .grid-container{
         width: 560px;
         height: 560px;
+         overflow: hidden;
     }
 
      footer{
@@ -140,9 +141,16 @@ footer p{
      .grid-container{
         width: 360px;
         height: 360px;
+         overflow: hidden;
     }
 
     footer{
         padding: 16px;
     }
+}
+
+.dynamic-cell{
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+
 }
