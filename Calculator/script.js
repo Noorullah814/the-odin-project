@@ -23,7 +23,7 @@ for (const digit of digitButtons) {
             span.textContent = "";
             shouldResetDisplay = false;
         }
-        
+
         // Prevent leading zero bugs
         if (span.textContent === "0") {
             span.textContent = "";
@@ -41,17 +41,17 @@ decimalButton.addEventListener('click', () => {
         shouldResetDisplay = false;
         return;
     }
-    
+
     // Prevent multiple decimals in a single number
     if (span.textContent.includes('.')) {
         return;
     }
-    
+
     if (span.textContent === "" || span.textContent === "0") {
         span.textContent = "0.";
         return;
     }
-    
+
     span.textContent += ".";
 });
 
@@ -64,14 +64,13 @@ for (const operator of operatorButtons) {
 }
 
 function setOperator(operator) {
-    // FIX FOR PROBLEM #2: If user presses '25 + ' and then immediately presses '+', 
     // shouldResetDisplay is still true. They are just changing the operator. Do not calculate!
     if (currentOperator !== "" && !shouldResetDisplay) {
         secondNumber = span.textContent;
 
         let result = operate(currentOperator, Number(firstNumber), Number(secondNumber));
 
-        // FIX FOR PROBLEM #1: Handle division by zero break gracefully
+        // Handle division by zero break gracefully
         if (result === "Error") {
             handleErrorState();
             return;
@@ -110,7 +109,7 @@ equalButton.addEventListener('click', () => {
     }
 
     span.textContent = result;
-    
+
     // Reset state completely back to clean slate after '='
     firstNumber = "";
     secondNumber = "";
@@ -147,15 +146,15 @@ deleteButton.addEventListener('click', () => {
         resetAllStates();
         return;
     }
-    
+
     span.textContent = span.textContent.slice(0, -1);
-    
+
     if (span.textContent === "") {
         span.textContent = "0";
     }
-    
+
     // Ensure typing after deleting appends to the current text instead of wiping it
-    shouldResetDisplay = false; 
+    shouldResetDisplay = false;
 });
 
 // 7. OPERATE MATHEMATICAL CORE
@@ -185,7 +184,7 @@ window.addEventListener('keydown', (e) => {
         e.preventDefault(); // Prevent accidental form submissions or scrolling
         buttonToClick.classList.add('active'); // Optional: visual feedback class
         buttonToClick.click(); // Trigger the click event listener we already wrote!
-        
+
         // Remove the visual active state quickly
         setTimeout(() => buttonToClick.classList.remove('active'), 100);
     }
