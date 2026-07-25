@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+    background-color: #0F172A;
+    color: white;
+    font-family: Inter,sans-serif;
+}
+
+header{
+    text-align: center;
+    font-size: 24px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+   
+}
+.container{
+    display: flex;
+    gap: 16px;
+   
+     background-color: #172435;
+     padding: 24px;
+     width: 100%;
+     justify-content: center; 
+}
+.scoreboard,
+.current-round,
+.final-result
+{
+    background-color: #1E293B;
+    width: 300px;
+    padding: 24px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 16px;
+    box-shadow: rgba(0,0,0,.75);
+    border: 1px solid #0F172A;
+}
+
+h2{
+    text-align: center;
+    
+}
+.action-container button
+{
+    background-color: #3B82F6;
+    padding: 14px 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: Inter,sans-serif;
+     transition: 0.3s ease;
+     box-shadow: rgba(0,0,0,.25);
+     border: 1px solid #27354d;
+}
+
+.action-container button:hover{
+    background-color: #3272da;
+    transform:translateY(-4px);
+   
+}
+.action-container button:active
+{
+     background-color: #3272da;
+    transform:translateY(-4px);
+}
+footer{
+    text-align: center;
+    background-color: #1E293B;
+    margin-top: 16px;
+    padding: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .scoreboard,
+    .current-round,
+    .final-result {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .action-container {
+        gap: 12px;
+    }
+
+    .action-container button {
+        min-width: 110px;
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        padding: 0 12px;
+    }
+
+    .action-container button {
+        min-width: 100%;
+        max-width: 280px;
+    }
+
+    .container {
+        padding: 0 8px;
+    }
+}
