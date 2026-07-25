@@ -22,7 +22,7 @@ Throughout this journey, I will be building projects ranging from simple HTML pa
 - Learn professional Git and GitHub workflows.
 - Gain hands-on experience with full-stack development.
 - Build a portfolio of high-quality projects.
-- Prepare for internships and junior software engineering roles.
+- Prepare for full-stack and software engineering roles.
 
 ---
 
