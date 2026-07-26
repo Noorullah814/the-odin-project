@@ -1,45 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up form</title>
 </head>
+
 <body>
-   <main>
-    <section class="branding-section">
-        <div class="logo">This is my logo implemment later</div>
-        <h1>Build Your Developer Future</h1>
-        <p>The forge where code becomes craft. Join thousands of engineers scaling global infrastucture.</p>
-        <p>This is for photo credit. Photo credit will add later.</p>
-    </section>
-    <section class="sign-up-form-section">
-        <div class="hero-content">
-            <h1 class="heading">Create your account</h1>
-            <p class="description">Join the elite community of developers building the future</p>
-        </div>
-        <form>
-            <label for="first-name">First Name</label>
-            <input type="text" name="first-name" id="first-name" placeholder="John">
-            <label for="last-name">Last Name</label>
-            <input type="text" name="last-name" id="last-name" placeholder="Doe">
+    <main>
+        <section class="branding-section">
+            <div class="branding-logo">
+                <!-- brand logo will place later -->
+                <p class="brand-name">This is my logo implement later</p>
+            </div>
+            <h1>Build Your Developer Future</h1>
+            <p>The forge where code becomes craft. Join thousands of engineers scaling global infrastructure.</p>
+            <small>This is for photo credit. Photo credit will add later.</small>
+        </section>
+        <section class="signup-section">
+            <div class="form-header">
+                <h2 class="heading">Create your account</h2>
+                <p class="description">Join the elite community of developers building the future</p>
+            </div>
+            <form>
+                <div class="name-section">
+                    <div class="field">
+                        <label for="first-name">First Name</label>
+                        <input type="text" name="first-name" id="first-name" placeholder="John" required>
+                    </div>
+                    <div class="field">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" name="last-name" id="last-name" placeholder="Doe" required>
+                    </div>
+                </div>
 
-            <label for="email">Email Address</label>
-            <input type="email" name="email" id="email" placeholder="john@example.com">
-            <label for="contact-number">Contact Number</label>
-            <input type="number" name="contact-number" id="contact-number" placeholder="+92 (000) 000-0000">
+                <div class="contact-section">
+                    <div class="field">
+                        <label for="email">Email Address</label>
+                        <input type="email" name="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="field">
+                        <label for="phone-number">Contact Number</label>
+                        <input type="tel" name="phone-number" id="phone-number" placeholder="+92 (000) 000-0000"
+                            required>
+                    </div>
+                </div>
 
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="********">
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" name="confirm-password" id="confirm-password" placeholder="********">
+                <div class="security-section">
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+                    <div class="field">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" name="confirm-password" id="confirm-password" required>
+                    </div>
+                </div>
 
-            <button type="button">Create Account</button>
+                <div class="action-section">
+                    <div class="field">
+                        <button type="submit">Create Account</button>
+                    </div>
+                    <div class="field">
+                        <p>Already have an account? <a href="#">Log in</a></p>
+                    </div>
+                </div>
 
-            <p>Already have an account? <a href="#">Log in</a></p>
-
-        </form>
-    </section>
-   </main>
+            </form>
+        </section>
+    </main>
 </body>
+
 </html>
