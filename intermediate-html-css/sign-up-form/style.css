@@ -62,10 +62,10 @@ select {
     /* Font Sizes */
     --font-size-display-large: 48px;
 
-    --font-size-heading-large: 32px;
+    --font-size-heading-large: 48px;
     --font-size-heading-medium: 24px;
 
-    --font-size-body-large: 18px;
+    --font-size-body-large: 24px;
     --font-size-body-medium: 16px;
     --font-size-body-small: 14px;
 
@@ -129,3 +129,85 @@ select {
 
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: var(--font-family-primary);
+    background-color: var(--page-background);
+    color: var(--text-body);
+    min-height: 100vh;
+    line-height: var(--line-height-body-medium);
+    font-size: var(--font-size-body-medium);
+}
+
+a{
+    text-decoration: none;
+    color:var(--text-link);
+    transition: color var(--transition-default);
+}
+
+main{
+    display: flex;
+    min-height: 100vh;
+}
+
+.branding-section{
+    flex: 4;
+    padding: var(--spacing-2xl);
+    position: relative;
+    background-image: url(assets/tech-bg.avif);
+    background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   display: flex;
+   flex-direction: column;
+   border-radius: var(--border-radius-extra-large);
+   overflow: hidden;
+    
+}
+
+.branding-section::before{
+    content:"";
+    position: absolute;
+    inset: 0;
+   background-color: rgba(5, 20, 36, 0.45); 
+  backdrop-filter: blur(3px);  
+  z-index: 0;
+}
+
+.branding-section>*{
+    position: relative;
+    z-index: 1;
+}
+
+.branding-logo{
+    display: flex;
+   
+}
+.brand-name {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-bold);
+    padding: 3px 0;
+    font-size: var(--font-size-body-large);
+}
+
+.branding-section h1{
+    color:var(--text-white);
+    font-size:var(--font-size-heading-large);
+    line-height: var(--line-height-display);
+}
+
+.branding-section .description{
+    line-height: var(--line-height-heading-medium);
+}
+
+small{
+     margin-top: auto;
+    text-align: end;
+}
+
+.signup-section{
+    flex: 6;
+}
