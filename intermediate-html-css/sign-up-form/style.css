@@ -41,7 +41,7 @@ select {
 
     --text-link: #C3C0FF;
 
-    --input-background: #010F1F;
+    --input-background: #142235;
 
     --input-border: #464555;
 
@@ -63,7 +63,7 @@ select {
     --font-size-display-large: 48px;
 
     --font-size-heading-large: 48px;
-    --font-size-heading-medium: 24px;
+    --font-size-heading-medium: 32px;
 
     --font-size-body-large: 24px;
     --font-size-body-medium: 16px;
@@ -105,8 +105,8 @@ select {
     --border-radius-full: 9999px;
 
     /* Spacing */
-    --spacing-extra-small: 4px;
-    --spacing-small: 8px;
+    --spacing-extra-small: 6px;
+    --spacing-small: 12px;
     --spacing-medium: 16px;
     --spacing-large: 24px;
     --spacing-extra-large: 32px;
@@ -126,66 +126,70 @@ select {
     /* Layout */
 
     --container-max-width: 1280px;
+    --max-form-width: 560px;
 
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     font-family: var(--font-family-primary);
     background-color: var(--page-background);
     color: var(--text-body);
     min-height: 100vh;
     line-height: var(--line-height-body-medium);
     font-size: var(--font-size-body-medium);
+    color: var(--text-body);
 }
 
-a{
+a {
     text-decoration: none;
-    color:var(--text-link);
+    color: var(--text-link);
     transition: color var(--transition-default);
 }
 
-main{
+main {
     display: flex;
     min-height: 100vh;
+    margin: var(--spacing-large);
 }
 
-.branding-section{
+.branding-section {
     flex: 4;
     padding: var(--spacing-2xl);
     position: relative;
     background-image: url(assets/tech-bg.avif);
     background-size: cover;
-   background-position: center;
-   background-repeat: no-repeat;
-   display: flex;
-   flex-direction: column;
-   border-radius: var(--border-radius-extra-large);
-   overflow: hidden;
-    
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius-extra-large) 0 0 var(--border-radius-extra-large);
+    overflow: hidden;
+
 }
 
-.branding-section::before{
-    content:"";
+.branding-section::before {
+    content: "";
     position: absolute;
     inset: 0;
-   background-color: rgba(5, 20, 36, 0.45); 
-  backdrop-filter: blur(3px);  
-  z-index: 0;
+    background-color: rgba(5, 20, 36, 0.45);
+    backdrop-filter: blur(3px);
+    z-index: 0;
 }
 
-.branding-section>*{
+.branding-section>* {
     position: relative;
     z-index: 1;
 }
 
-.branding-logo{
+.branding-logo {
     display: flex;
-   
+
 }
+
 .brand-name {
     font-family: var(--font-family-secondary);
     font-weight: var(--font-weight-bold);
@@ -193,21 +197,162 @@ main{
     font-size: var(--font-size-body-large);
 }
 
-.branding-section h1{
-    color:var(--text-white);
-    font-size:var(--font-size-heading-large);
+.branding-section h1 {
+    color: var(--text-white);
+    font-size: var(--font-size-heading-large);
     line-height: var(--line-height-display);
 }
 
-.branding-section .description{
+.branding-section .description {
     line-height: var(--line-height-heading-medium);
 }
 
-small{
-     margin-top: auto;
-    text-align: end;
+.branding-section small {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-medium);
+
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-label-small);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
-.signup-section{
+.branding-section small::before {
+    content: "";
+    width: 250px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.signup-section {
     flex: 6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--form-background);
+    border-radius: 0 var(--border-radius-extra-large) var(--border-radius-extra-large) 0;
+}
+
+.form-header {
+    margin: var(--spacing-small) 0;
+    padding: var(--spacing-medium) 0;
+}
+
+.form-header h2 {
+    color: var(--text-white);
+    font-size: var(--font-size-heading-medium);
+}
+
+.form-header .description {
+    font-weight: var(--font-weight-regular);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-extra-large);
+        width: 100%;
+    max-width: var(--max-form-width);
+
+}
+
+.name-section {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-medium);
+       
+}
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.security-section {
+    display: flex;
+    gap: var(--spacing-medium);
+}
+
+.field label {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-extra-small);
+}
+
+.field input {
+    background-color: var(--input-background);
+    padding: var(--spacing-small);
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius-default);
+        width: 100%;
+    outline: none;
+    border: 1px solid var(--input-border);
+    color: var(--text-white);
+    transition: border-color var(--transition-default);
+
+}
+
+input:focus {
+    border-color: var(--focus-border);
+}
+
+.field input::placeholder {
+    padding: var(--spacing-extra-small);
+}
+
+.action-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.action-field {
+    display: flex;
+    flex-direction: column;
+    margin: var(--spacing-medium);
+}
+
+.action-field button {
+    background-color: var(--primary-light);
+    padding: var(--spacing-small);
+    border: none;
+    border-radius: var(--border-radius-default);
+    transition: var(--transition-default);
+    cursor: pointer;
+font-weight: var(--font-weight-semi-bold);
+box-shadow: var(--shadow-indigo-glow);
+}
+
+.action-field button:hover {
+    background-color: var(--primary-hover);
+    color: var(--text-white);
+
+}
+
+.action-field p {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-medium);
+}
+
+.action-field:last-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: var(--spacing-large);
+}
+
+a:hover {
+    color: var(--text-white);
+}
+
+.terms-section{
+    padding-left: 15px;
 }
