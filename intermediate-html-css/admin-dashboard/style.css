@@ -285,7 +285,7 @@ a {
     min-height: 100vh;
     display: grid;
     grid-template-columns: var(--sidebar-width) 1fr;
-    gap: var(--grid-gap);
+   
 }
 
 /* =========================
@@ -337,15 +337,12 @@ a {
 }
 
 /* =========================
-   sidebar primary navigation
+   sidebar primary and secondary navigation
 ========================= */
 
 .primary-nav,
 .secondary-nav {
-
     margin-bottom: var(--spacing-medium);
-
-
 }
 
 .primary-nav li,
@@ -360,7 +357,6 @@ a {
     transition: var(--transition-default);
     font-weight: var(--font-weight-medium);
 }
-
 
 .iconfield:hover,
 .iconfield:focus-visible {
@@ -378,7 +374,6 @@ svg {
     height: 20px;
     width: 20px;
 }
-
 
 .upgrade-card {
     margin-top: auto;
@@ -430,6 +425,122 @@ svg {
     background-color: var(--primary-hover);
 }
 
+/* =========================
+   main section
+========================= */
+
 .main-content {
-    padding: var(--container-padding);
+   padding: 0;
+   margin: 0;
+}
+
+/* =========================
+   header
+========================= */
+
+.dashboard-header{
+    display: flex;
+    background-color: var(--surface-color);
+}
+
+.search-form {
+    position: relative;
+    margin: var(--spacing-small) var(--spacing-medium);
+}
+
+.search-form svg {
+    position: absolute;
+    top:var(--spacing-extra-small);
+    left: var(--spacing-small);
+    width: 18px;
+    height: 18px;
+}
+
+.search-form input {
+    width: 100%;
+    padding: var(--spacing-extra-small) var(--spacing-large);
+    border-radius: var(--border-radius-default);
+    background: var(--surface-low);
+}
+
+.header-actions{
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-icons{
+    display: flex;
+    gap: var(--spacing-extra-small);
+    background-color: var(--surface-low);
+    padding: var(--spacing-extra-small) var(--spacing-medium);
+    border-radius: var(--border-radius-default);
+}
+
+.project-btn{
+    background-color: var(--primary-light);
+    padding: var(--spacing-extra-small) var(--spacing-small);
+    color: var(--surface-color);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-default);
+    transition: var(--transition-default);
+}
+
+.project-btn:hover{
+    background-color: var(--primary-hover);
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-extra-small);
+     padding: var(--spacing-small) var(--spacing-medium);
+    
+}
+
+/* =========================
+   welcome banner section
+========================= */
+
+.welcome-banner{
+   border: 2px solid black;
+   display: flex;
+   align-items: center;
+   padding: var(--spacing-medium);
+   margin: var(--spacing-small);
+   background-color: var(--primary-light);
+   color: var(--surface-color);
+   border-radius: var(--border-radius-default);
+}
+
+.welcome-content span{
+    color: var(--surface-low);
+}
+
+.welcome-content h2{
+    font-size: var(--font-size-heading-large);
+    font-weight: var(--font-weight-bold);
+}
+
+.welcome-content p{
+    color: var(--surface-low);
+}
+
+.welcome-div{
+    border: 2px solid black;
+    margin: var(--spacing-small);
+    padding: var(--spacing-extra-small);
+    width: 40%;
+    
+    
+}
+
+.primary-btn{
+    padding: var(--spacing-extra-small) var(--spacing-small);
+    color: var(--primary-light);
+    background-color: var(--surface-color);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-default);
+    
 }
