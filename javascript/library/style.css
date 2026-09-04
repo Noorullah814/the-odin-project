@@ -1112,3 +1112,137 @@ ol {
     padding: 20px 0;
   }
 }
+
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+  :root {
+    --page-padding: 32px;
+  }
+
+  .library-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .library-controls {
+    width: 100%;
+  }
+
+  .search-form {
+    flex: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-padding: 16px;
+  }
+
+  .header {
+    padding: 16px var(--page-padding);
+  }
+
+  .brand-name,
+  .profile-name {
+    display: none;
+  }
+
+  .hero {
+    padding: 48px 0;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero .primary-button {
+    width: 100%;
+  }
+
+  .library-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-value {
+    font-size: 28px;
+  }
+
+  .library-section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .section-header h2 {
+    font-size: 28px;
+  }
+
+  .library-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .search-form {
+    width: 100%;
+  }
+
+  #book-filter {
+    width: 100%;
+  }
+
+  .books-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .empty-state {
+    min-height: 280px;
+    padding: 32px 20px;
+  }
+
+  .book-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100vh - 24px);
+    border-radius: 20px;
+  }
+
+  .dialog-header {
+    padding: 24px 20px 20px;
+  }
+
+  .form-fields {
+    padding: 24px 20px;
+  }
+
+  .form-actions {
+    padding: 16px 20px 24px;
+  }
+
+  .form-actions button {
+    flex: 1;
+  }
+}
