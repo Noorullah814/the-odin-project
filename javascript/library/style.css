@@ -715,3 +715,22 @@ ol {
 
     font-size: var(--font-body-sm);
 }
+
+/* =========================================================
+   BOOK METADATA
+========================================================= */
+
+.book-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+
+    margin-bottom: var(--space-24);
+}
+
+.book-pages {
+    color: var(--text-secondary);
+
+    font-size: var(--font-body-sm);
+}
