@@ -496,3 +496,29 @@ ol {
     line-height: 1.2;
     letter-spacing: -0.02em;
 }
+
+/* =========================================================
+   LIBRARY SECTION
+========================================================= */
+
+.library-section {
+    margin-bottom: var(--space-64);
+}
+
+.section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-24);
+
+    margin-bottom: var(--space-32);
+}
+
+.section-header h2 {
+    color: var(--text-primary);
+
+    font-size: var(--font-headline-lg);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
