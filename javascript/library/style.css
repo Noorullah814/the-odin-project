@@ -814,3 +814,60 @@ ol {
     background-color: var(--error-container);
     color: var(--error);
 }
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 320px;
+
+    padding: var(--space-48);
+
+    border: 1px dashed var(--outline-variant);
+    border-radius: var(--radius-xl);
+
+    background-color: var(--surface-container-low);
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 56px;
+    height: 56px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: var(--space-16);
+
+    border-radius: 50%;
+
+    background-color: var(--primary-fixed);
+
+    font-size: 26px;
+}
+
+.empty-state h3 {
+    margin-bottom: var(--space-8);
+
+    color: var(--text-primary);
+
+    font-size: var(--font-headline-sm);
+    font-weight: 600;
+}
+
+.empty-state p {
+    max-width: 420px;
+
+    margin-bottom: var(--space-24);
+
+    color: var(--text-secondary);
+
+    font-size: var(--font-body-md);
+}
