@@ -1069,3 +1069,17 @@ ol {
   outline: 2px solid #1f108e;
   outline-offset: 2px;
 }
+
+/* Form action */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 32px 32px;
+  border-top: 1px solid #e5e5e1;
+}
+
+.form-actions button {
+  min-height: 44px;
+}
