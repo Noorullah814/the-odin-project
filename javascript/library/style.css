@@ -661,3 +661,27 @@ ol {
     transform: translateY(-3px);
     box-shadow: var(--shadow-card-hover);
 }
+
+/* =========================================================
+   BOOK COVER
+========================================================= */
+
+.book-cover {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+
+    overflow: hidden;
+
+    background-color: var(--surface-container);
+
+    border-bottom: 1px solid var(--border-color);
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: var(--radius-sm);
+}
