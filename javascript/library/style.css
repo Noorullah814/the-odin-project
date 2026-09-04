@@ -171,3 +171,143 @@ ol {
     margin: 0 auto;
     flex: 1;
 }
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    width: 100%;
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 var(--page-padding);
+
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--surface-container-lowest);
+}
+
+
+/* ---------- Brand ---------- */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-12);
+
+    font-weight: 700;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: var(--radius-default);
+
+    background-color: var(--primary);
+    color: var(--on-primary);
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+
+/* ---------- Header Actions ---------- */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+}
+
+
+/* ---------- Icon Button ---------- */
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-default);
+
+    background-color: transparent;
+    color: var(--text-secondary);
+
+    transition:
+        background-color 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease;
+}
+
+.icon-button:hover {
+    background-color: var(--surface-container);
+    color: var(--text-primary);
+}
+
+.icon-button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+
+/* ---------- Profile ---------- */
+
+.profile-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-8);
+
+    padding: 6px 10px 6px 6px;
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+
+    background-color: var(--surface-container-lowest);
+    color: var(--text-primary);
+
+    transition:
+        background-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.profile-button:hover {
+    background-color: var(--surface-container-low);
+    box-shadow: var(--shadow-card);
+}
+
+.profile-avatar {
+    width: 32px;
+    height: 32px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background-color: var(--primary-fixed);
+    color: var(--primary);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 600;
+}
