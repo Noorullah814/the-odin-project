@@ -734,3 +734,32 @@ ol {
 
     font-size: var(--font-body-sm);
 }
+
+/* =========================================================
+   BOOK STATUS
+========================================================= */
+
+.book-status {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: var(--radius-pill);
+
+    font-size: var(--font-label-sm);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.book-status.read {
+    background-color: rgba(34, 197, 94, 0.10);
+    color: #166534;
+}
+
+.book-status.unread {
+    background-color: rgba(95, 94, 94, 0.10);
+    color: var(--text-secondary);
+}
