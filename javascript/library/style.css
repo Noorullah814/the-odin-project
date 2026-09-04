@@ -370,3 +370,75 @@ ol {
     font-size: var(--font-body-lg);
     line-height: 1.6;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.primary-button,
+.secondary-button {
+    min-height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+
+/* ---------- Primary ---------- */
+
+.primary-button {
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+.primary-button:hover {
+    background-color: var(--primary-container);
+    border-color: var(--primary-container);
+    box-shadow: var(--shadow-card);
+}
+
+.primary-button:active {
+    transform: translateY(1px);
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+    outline: 2px solid rgba(31, 16, 142, 0.3);
+    outline-offset: 2px;
+}
+
+
+/* ---------- Secondary ---------- */
+
+.secondary-button {
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-container-lowest);
+    color: var(--text-primary);
+}
+
+.secondary-button:hover {
+    background-color: var(--surface-container-low);
+    border-color: var(--outline-variant);
+}
+
+.secondary-button:active {
+    transform: translateY(1px);
+}
