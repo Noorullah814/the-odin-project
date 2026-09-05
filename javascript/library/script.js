@@ -6,19 +6,23 @@ const myLibrary=[]
 
 const booksGrid = document.querySelector("#books-grid")
 
+const newBookButton = document.querySelector("#new-book-button");
+const bookDialog = document.querySelector("#book-dialog");
+const closeDialogButton = document.querySelector("#close-dialog-button");
+
 // Book constructor
 
-function Book(title,auther,pages,read){
+function Book(title,author,pages,read){
     this.title=title
-    this.auther=auther
+    this.auther=author
     this.pages=pages
     this.read=read
     this.id=crypto.randomUUID()
 }
 
-function addBookToLibrary(title,auther,pages,read)
+function addBookToLibrary(title,author,pages,read)
 {
-    const book=new Book(title,auther,pages,read)
+    const book=new Book(title,author,pages,read)
     myLibrary.push(book)
 }
 
@@ -70,3 +74,10 @@ function displayBooks() {
     });
 }
 
+newBookButton.addEventListener("click",()=>{
+    bookDialog.showModal()
+})
+
+closeDialogButton.addEventListener("click",()=>{
+    bookDialog.close()
+})
