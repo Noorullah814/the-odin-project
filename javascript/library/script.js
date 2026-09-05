@@ -6,9 +6,11 @@ const myLibrary=[]
 
 const booksGrid = document.querySelector("#books-grid")
 
-const newBookButton = document.querySelector("#new-book-button");
-const bookDialog = document.querySelector("#book-dialog");
-const closeDialogButton = document.querySelector("#close-dialog-button");
+const newBookButton = document.querySelector("#new-book-button")
+const bookDialog = document.querySelector("#book-dialog")
+const closeDialogButton = document.querySelector("#close-dialog-button")
+const bookForm = document.querySelector("#book-form")
+
 
 // Book constructor
 
@@ -81,3 +83,25 @@ newBookButton.addEventListener("click",()=>{
 closeDialogButton.addEventListener("click",()=>{
     bookDialog.close()
 })
+
+
+bookForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector("#book-title").value;
+    const author = document.querySelector("#book-author").value;
+    const pages = document.querySelector("#book-pages").value;
+
+    const readStatus = document.querySelector(
+        'input[name="read-status"]:checked'
+    ).value;
+
+    const read = readStatus === "read";
+
+    addBookToLibrary(title, author, pages, read);
+
+    displayBooks();
+
+    bookDialog.close();
+    bookForm.reset();
+});
