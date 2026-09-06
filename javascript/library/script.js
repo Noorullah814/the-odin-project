@@ -105,3 +105,19 @@ bookForm.addEventListener("submit", (event) => {
     bookDialog.close();
     bookForm.reset();
 });
+
+booksGrid.addEventListener("click", (event) => {
+    if (!event.target.classList.contains("book-remove")) {
+        return;
+    }
+
+    const bookCard = event.target.closest(".book-card");
+    const bookId = bookCard.dataset.bookId;
+
+    const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
+
+    if (bookIndex !== -1) {
+        myLibrary.splice(bookIndex, 1);
+        displayBooks();
+    }
+});
