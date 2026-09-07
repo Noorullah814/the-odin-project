@@ -10,7 +10,7 @@ const newBookButton = document.querySelector("#new-book-button")
 const bookDialog = document.querySelector("#book-dialog")
 const closeDialogButton = document.querySelector("#close-dialog-button")
 const bookForm = document.querySelector("#book-form")
-
+const emptyState = document.querySelector("#empty-state")
 
 // Book constructor
 
@@ -34,6 +34,14 @@ function addBookToLibrary(title,author,pages,read)
 
 function displayBooks() {
     booksGrid.innerHTML = "";
+     if (myLibrary.length === 0) {
+        booksGrid.style.display = "none";
+        emptyState.style.display = "flex";
+        return;
+    }
+
+    booksGrid.style.display = "grid";
+    emptyState.style.display = "none";
 
     myLibrary.forEach((book) => {
         const bookCard = document.createElement("article");
