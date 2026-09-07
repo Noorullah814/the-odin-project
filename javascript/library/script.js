@@ -22,6 +22,10 @@ function Book(title,author,pages,read){
     this.id=crypto.randomUUID()
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+};
+
 function addBookToLibrary(title,author,pages,read)
 {
     const book=new Book(title,author,pages,read)
@@ -107,17 +111,29 @@ bookForm.addEventListener("submit", (event) => {
 });
 
 booksGrid.addEventListener("click", (event) => {
-    if (!event.target.classList.contains("book-remove")) {
+    const bookCard = event.target.closest(".book-card");
+
+    if (!bookCard) {
         return;
     }
 
-    const bookCard = event.target.closest(".book-card");
     const bookId = bookCard.dataset.bookId;
 
-    const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
+    const book = myLibrary.find((book) => book.id === bookId);
 
-    if (bookIndex !== -1) {
-        myLibrary.splice(bookIndex, 1);
+    if (event.target.classList.contains("book-remove")) {
+        const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
+
+        if (bookIndex !== -1) {
+            myLibrary.splice(bookIndex, 1);
+            displayBooks();
+        }
+
+        return;
+    }
+
+    if (event.target.classList.contains("book-toggle")) {
+        book.toggleRead();
         displayBooks();
     }
 });
