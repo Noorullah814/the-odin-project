@@ -12,6 +12,11 @@ const closeDialogButton = document.querySelector("#close-dialog-button")
 const bookForm = document.querySelector("#book-form")
 const emptyState = document.querySelector("#empty-state")
 
+const totalBooks = document.querySelector("#total-books")
+const booksRead = document.querySelector("#books-read")
+const booksReading = document.querySelector("#books-reading")
+const booksUnread = document.querySelector("#books-unread")
+
 // Book constructor
 
 function Book(title,author,pages,read){
@@ -145,3 +150,18 @@ booksGrid.addEventListener("click", (event) => {
         displayBooks();
     }
 });
+
+function updateLibraryStats() {
+    const total = myLibrary.length;
+
+    const read = myLibrary.filter((book) => book.read).length;
+
+    const unread = myLibrary.filter((book) => !book.read).length;
+
+    const reading = 0;
+
+    totalBooks.textContent = total;
+    booksRead.textContent = read;
+    booksReading.textContent = reading;
+    booksUnread.textContent = unread;
+}
