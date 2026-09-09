@@ -19,8 +19,11 @@ const booksUnread = document.querySelector("#books-unread")
 
 const emptyAddBookButton = document.querySelector("#empty-add-book")
 const searchInput = document.querySelector("#book-search")
+const bookFilter = document.querySelector("#book-filter")
 
- let searchTerm = "";gi
+
+ let searchTerm = "";
+ let filterStatus = "all";
 
 // Book constructor
 
@@ -53,15 +56,20 @@ function displayBooks() {
 
     booksGrid.style.display = "grid";
     emptyState.style.display = "none";
-
-    const filteredBooks = myLibrary.filter((book) => {
+const filteredBooks = myLibrary.filter((book) => {
     const title = book.title.toLowerCase();
     const author = book.author.toLowerCase();
 
-    return (
+    const matchesSearch =
         title.includes(searchTerm) ||
-        author.includes(searchTerm)
-    );
+        author.includes(searchTerm);
+
+    const matchesFilter =
+        filterStatus === "all" ||
+        (filterStatus === "read" && book.read) ||
+        (filterStatus === "unread" && !book.read);
+
+    return matchesSearch && matchesFilter;
 });
 
     filteredBooks.forEach((book) => {
@@ -189,6 +197,12 @@ function updateLibraryStats() {
 
 searchInput.addEventListener("input", () => {
     searchTerm = searchInput.value.toLowerCase().trim();
+
+    displayBooks();
+});
+
+bookFilter.addEventListener("change", () => {
+    filterStatus = bookFilter.value;
 
     displayBooks();
 });
