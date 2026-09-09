@@ -18,12 +18,15 @@ const booksReading = document.querySelector("#books-reading")
 const booksUnread = document.querySelector("#books-unread")
 
 const emptyAddBookButton = document.querySelector("#empty-add-book")
+const searchInput = document.querySelector("#book-search")
+
+ let searchTerm = "";gi
 
 // Book constructor
 
 function Book(title,author,pages,read){
     this.title=title
-    this.auther=author
+    this.author=author
     this.pages=pages
     this.read=read
     this.id=crypto.randomUUID()
@@ -40,6 +43,7 @@ function addBookToLibrary(title,author,pages,read)
 }
 
 function displayBooks() {
+    
     booksGrid.innerHTML = "";
      if (myLibrary.length === 0) {
         booksGrid.style.display = "none";
@@ -50,7 +54,17 @@ function displayBooks() {
     booksGrid.style.display = "grid";
     emptyState.style.display = "none";
 
-    myLibrary.forEach((book) => {
+    const filteredBooks = myLibrary.filter((book) => {
+    const title = book.title.toLowerCase();
+    const author = book.author.toLowerCase();
+
+    return (
+        title.includes(searchTerm) ||
+        author.includes(searchTerm)
+    );
+});
+
+    filteredBooks.forEach((book) => {
         const bookCard = document.createElement("article");
 
         bookCard.classList.add("book-card");
@@ -172,3 +186,9 @@ function updateLibraryStats() {
     booksReading.textContent = reading;
     booksUnread.textContent = unread;
 }
+
+searchInput.addEventListener("input", () => {
+    searchTerm = searchInput.value.toLowerCase().trim();
+
+    displayBooks();
+});
