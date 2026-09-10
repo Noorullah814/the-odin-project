@@ -1246,3 +1246,20 @@ ol {
     flex: 1;
   }
 }
+
+.no-results-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 64px 24px;
+}
+
+.no-results-state h3 {
+    margin-bottom: 8px;
+}
+
+.no-results-state p {
+    color: var(--text-secondary);
+}
