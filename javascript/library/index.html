@@ -14,9 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
@@ -41,18 +39,11 @@
 
                 <button class="icon-button" type="button" aria-label="Toggle theme">
                     <!-- Moon icon -->
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         aria-hidden="true">
-                        <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+                        <path
+                            d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
                     </svg>
                 </button>
 
@@ -173,25 +164,14 @@
                                 Search books
                             </label>
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
                                 <path d="m21 21-4.34-4.34" />
                                 <circle cx="11" cy="11" r="8" />
                             </svg>
 
-                            <input
-                                type="search"
-                                id="book-search"
-                                placeholder="Search books...">
+                            <input type="search" id="book-search" placeholder="Search books...">
 
                         </form>
 
@@ -225,6 +205,10 @@
 
                 </div>
 
+                <div class="no-results-state" id="no-results-state">
+                    <h3>No books found</h3>
+                    <p>Try a different search or filter.</p>
+                </div>
 
                 <!-- Empty State -->
 
@@ -264,10 +248,7 @@
                     <h2>Add New Book</h2>
                 </div>
 
-                <button
-                    class="icon-button close-dialog"
-                    id="close-dialog-button"
-                    type="button"
+                <button class="icon-button close-dialog" id="close-dialog-button" type="button"
                     aria-label="Close dialog">
 
                     <span aria-hidden="true">×</span>
@@ -287,12 +268,7 @@
                         Book Title
                     </label>
 
-                    <input
-                        type="text"
-                        id="book-title"
-                        name="title"
-                        placeholder="e.g. Clean Code"
-                        required>
+                    <input type="text" id="book-title" name="title" placeholder="e.g. Clean Code" required>
 
                 </div>
 
@@ -305,12 +281,7 @@
                         Author
                     </label>
 
-                    <input
-                        type="text"
-                        id="book-author"
-                        name="author"
-                        placeholder="e.g. Robert C. Martin"
-                        required>
+                    <input type="text" id="book-author" name="author" placeholder="e.g. Robert C. Martin" required>
 
                 </div>
 
@@ -323,13 +294,7 @@
                         Number of Pages
                     </label>
 
-                    <input
-                        type="number"
-                        id="book-pages"
-                        name="pages"
-                        placeholder="e.g. 464"
-                        min="1"
-                        required>
+                    <input type="number" id="book-pages" name="pages" placeholder="e.g. 464" min="1" required>
 
                 </div>
 
@@ -342,10 +307,7 @@
 
                     <label class="radio-option">
 
-                        <input
-                            type="radio"
-                            name="read-status"
-                            value="read">
+                        <input type="radio" name="read-status" value="read">
 
                         <span>I've read this book</span>
 
@@ -354,11 +316,7 @@
 
                     <label class="radio-option">
 
-                        <input
-                            type="radio"
-                            name="read-status"
-                            value="unread"
-                            checked>
+                        <input type="radio" name="read-status" value="unread" checked>
 
                         <span>I haven't read this book</span>
 
@@ -371,15 +329,11 @@
 
                 <div class="form-actions">
 
-                    <button
-                        type="button"
-                        class="secondary-button close-dialog">
+                    <button type="button" class="secondary-button close-dialog">
                         Cancel
                     </button>
 
-                    <button
-                        type="submit"
-                        class="primary-button">
+                    <button type="submit" class="primary-button">
                         Add Book
                     </button>
 
