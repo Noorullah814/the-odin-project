@@ -11,6 +11,7 @@ const bookDialog = document.querySelector("#book-dialog")
 const closeDialogButton = document.querySelector("#close-dialog-button")
 const bookForm = document.querySelector("#book-form")
 const emptyState = document.querySelector("#empty-state")
+const noResultsState = document.querySelector("#no-results-state")
 
 const totalBooks = document.querySelector("#total-books")
 const booksRead = document.querySelector("#books-read")
@@ -20,6 +21,7 @@ const booksUnread = document.querySelector("#books-unread")
 const emptyAddBookButton = document.querySelector("#empty-add-book")
 const searchInput = document.querySelector("#book-search")
 const bookFilter = document.querySelector("#book-filter")
+
 
 
  let searchTerm = "";
@@ -48,11 +50,13 @@ function addBookToLibrary(title,author,pages,read)
 function displayBooks() {
     
     booksGrid.innerHTML = "";
-     if (myLibrary.length === 0) {
-        booksGrid.style.display = "none";
-        emptyState.style.display = "flex";
-        return;
-    }
+  if (myLibrary.length === 0) {
+    booksGrid.style.display = "none";
+    emptyState.style.display = "flex";
+    noResultsState.style.display = "none";
+    updateLibraryStats();
+    return;
+}
 
     booksGrid.style.display = "grid";
     emptyState.style.display = "none";
@@ -71,6 +75,13 @@ const filteredBooks = myLibrary.filter((book) => {
 
     return matchesSearch && matchesFilter;
 });
+
+if (filteredBooks.length === 0) {
+    booksGrid.style.display = "none";
+    noResultsState.style.display = "flex";
+    updateLibraryStats();
+    return;
+}
 
     filteredBooks.forEach((book) => {
         const bookCard = document.createElement("article");
