@@ -2,7 +2,7 @@
 // LIBRARY DATA
 // ========================================
 
-const myLibrary=[]
+const myLibrary = []
 
 const booksGrid = document.querySelector("#books-grid")
 
@@ -24,64 +24,63 @@ const bookFilter = document.querySelector("#book-filter")
 
 
 
- let searchTerm = "";
- let filterStatus = "all";
+let searchTerm = "";
+let filterStatus = "all";
 
 // Book constructor
 
-function Book(title,author,pages,read){
-    this.title=title
-    this.author=author
-    this.pages=pages
-    this.read=read
-    this.id=crypto.randomUUID()
+function Book(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+    this.id = crypto.randomUUID()
 }
 
 Book.prototype.toggleRead = function () {
     this.read = !this.read;
 };
 
-function addBookToLibrary(title,author,pages,read)
-{
-    const book=new Book(title,author,pages,read)
+function addBookToLibrary(title, author, pages, read) {
+    const book = new Book(title, author, pages, read)
     myLibrary.push(book)
 }
 
 function displayBooks() {
-    
+
     booksGrid.innerHTML = "";
-  if (myLibrary.length === 0) {
-    booksGrid.style.display = "none";
-    emptyState.style.display = "flex";
-    noResultsState.style.display = "none";
-    updateLibraryStats();
-    return;
-}
+    if (myLibrary.length === 0) {
+        booksGrid.style.display = "none";
+        emptyState.style.display = "flex";
+        noResultsState.style.display = "none";
+        updateLibraryStats();
+        return;
+    }
 
     booksGrid.style.display = "grid";
     emptyState.style.display = "none";
-const filteredBooks = myLibrary.filter((book) => {
-    const title = book.title.toLowerCase();
-    const author = book.author.toLowerCase();
+    const filteredBooks = myLibrary.filter((book) => {
+        const title = book.title.toLowerCase();
+        const author = book.author.toLowerCase();
 
-    const matchesSearch =
-        title.includes(searchTerm) ||
-        author.includes(searchTerm);
+        const matchesSearch =
+            title.includes(searchTerm) ||
+            author.includes(searchTerm);
 
-    const matchesFilter =
-        filterStatus === "all" ||
-        (filterStatus === "read" && book.read) ||
-        (filterStatus === "unread" && !book.read);
+        const matchesFilter =
+            filterStatus === "all" ||
+            (filterStatus === "read" && book.read) ||
+            (filterStatus === "unread" && !book.read);
 
-    return matchesSearch && matchesFilter;
-});
+        return matchesSearch && matchesFilter;
+    });
 
-if (filteredBooks.length === 0) {
-    booksGrid.style.display = "none";
-    noResultsState.style.display = "flex";
-    updateLibraryStats();
-    return;
-}
+    if (filteredBooks.length === 0) {
+        booksGrid.style.display = "none";
+        noResultsState.style.display = "flex";
+        updateLibraryStats();
+        return;
+    }
 
     filteredBooks.forEach((book) => {
         const bookCard = document.createElement("article");
@@ -126,7 +125,7 @@ if (filteredBooks.length === 0) {
 
         booksGrid.appendChild(bookCard);
     });
-     updateLibraryStats();
+    updateLibraryStats();
 }
 
 function openBookDialog() {
@@ -135,7 +134,7 @@ function openBookDialog() {
 
 newBookButton.addEventListener("click", openBookDialog);
 
-closeDialogButton.addEventListener("click",()=>{
+closeDialogButton.addEventListener("click", () => {
     bookDialog.close()
 })
 
@@ -145,17 +144,26 @@ emptyAddBookButton.addEventListener("click", openBookDialog);
 bookForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const title = document.querySelector("#book-title").value;
-    const author = document.querySelector("#book-author").value;
+    const title = document.querySelector("#book-title").value.trim();
+    const author = document.querySelector("#book-author").value.trim();
     const pages = document.querySelector("#book-pages").value;
 
     const readStatus = document.querySelector(
         'input[name="read-status"]:checked'
     ).value;
 
+    if (!title || !author || !pages) {
+        return;
+    }
+
+    const pageCount = Number(pages);
+    if (pageCount <= 0) {
+        return;
+    }
+
     const read = readStatus === "read";
 
-    addBookToLibrary(title, author, pages, read);
+    addBookToLibrary(title, author, pageCount, read);
 
     displayBooks();
 
