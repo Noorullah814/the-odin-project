@@ -22,6 +22,8 @@ const emptyAddBookButton = document.querySelector("#empty-add-book")
 const searchInput = document.querySelector("#book-search")
 const bookFilter = document.querySelector("#book-filter")
 
+const cancelBookButton = document.querySelector(".close-dialog")
+
 
 
 let searchTerm = "";
@@ -140,6 +142,10 @@ closeDialogButton.addEventListener("click", () => {
 
 emptyAddBookButton.addEventListener("click", openBookDialog);
 
+cancelBookButton.addEventListener("click", () => {
+    bookForm.reset();
+    bookDialog.close();
+});
 
 bookForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -170,6 +176,8 @@ bookForm.addEventListener("submit", (event) => {
     bookDialog.close();
     bookForm.reset();
 });
+
+
 
 booksGrid.addEventListener("click", (event) => {
     const bookCard = event.target.closest(".book-card");
@@ -225,3 +233,5 @@ bookFilter.addEventListener("change", () => {
 
     displayBooks();
 });
+
+
