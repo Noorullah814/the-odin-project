@@ -22,8 +22,9 @@ const emptyAddBookButton = document.querySelector("#empty-add-book")
 const searchInput = document.querySelector("#book-search")
 const bookFilter = document.querySelector("#book-filter")
 
-const cancelBookButton = document.querySelector(".close-dialog")
-
+const cancelBookButton = document.querySelector(
+    ".form-actions .close-dialog"
+)
 
 
 let searchTerm = "";
@@ -234,4 +235,10 @@ bookFilter.addEventListener("change", () => {
     displayBooks();
 });
 
+bookDialog.addEventListener("click", (event) => {
+    if (event.target === bookDialog) {
+        bookDialog.close();
+        bookForm.reset();
+    }
+});
 
