@@ -94,7 +94,7 @@ function displayBooks() {
 
         bookCard.innerHTML = `
             <div class="book-cover">
-                <img src="assets/book-cover-placeholder.jpg" alt="">
+               <img src="assets/book-cover-placeholder.jpg" alt="Book cover placeholder">
             </div>
 
             <div class="book-info">
@@ -115,11 +115,11 @@ function displayBooks() {
                 </div>
 
                 <div class="book-actions">
-                    <button class="book-toggle" type="button">
+                    <button class="book-toggle" type="button" aria-label="${book.read ? "Mark as unread" : "Mark as read"}">
                         ${book.read ? "Mark as Unread" : "Mark as Read"}
                     </button>
 
-                    <button class="book-remove" type="button">
+                   <button class="book-remove" type="button" aria-label="Remove ${book.title}">
                         Remove
                     </button>
                 </div>
