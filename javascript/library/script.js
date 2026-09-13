@@ -139,16 +139,14 @@ function openBookDialog() {
 
 newBookButton.addEventListener("click", openBookDialog);
 
-closeDialogButton.addEventListener("click", () => {
-    bookDialog.close()
-})
-
-emptyAddBookButton.addEventListener("click", openBookDialog);
-
-cancelBookButton.addEventListener("click", () => {
+function closeBookDialog() {
     bookForm.reset();
     bookDialog.close();
-});
+}
+
+closeDialogButton.addEventListener("click", closeBookDialog);
+
+cancelBookButton.addEventListener("click", closeBookDialog);
 
 bookForm.addEventListener("submit", (event) => {
     event.preventDefault();
