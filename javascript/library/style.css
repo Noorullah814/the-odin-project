@@ -1263,3 +1263,19 @@ ol {
 .no-results-state p {
     color: var(--text-secondary);
 }
+
+.dark-theme {
+    background-color: #1b1b22;
+    color: #fcf8ff;
+}
+
+.dark-theme .header,
+.dark-theme .stat-card,
+.dark-theme .book-card {
+    background-color: #272631;
+}
+
+.dark-theme .book-info,
+.dark-theme .library-section {
+    color: #fcf8ff;
+}
