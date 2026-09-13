@@ -22,6 +22,8 @@ const emptyAddBookButton = document.querySelector("#empty-add-book")
 const searchInput = document.querySelector("#book-search")
 const bookFilter = document.querySelector("#book-filter")
 
+const themeToggle = document.querySelector("#theme-toggle")
+
 const cancelBookButton = document.querySelector(
     ".form-actions .close-dialog"
 )
@@ -242,3 +244,6 @@ bookDialog.addEventListener("click", (event) => {
     }
 });
 
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+});
