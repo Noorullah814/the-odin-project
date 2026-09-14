@@ -29,8 +29,8 @@ const cancelBookButton = document.querySelector(
 )
 
 
-let searchTerm = "";
-let filterStatus = "all";
+let searchTerm = ""
+let filterStatus = "all"
 
 // Book constructor
 
@@ -43,8 +43,8 @@ function Book(title, author, pages, read) {
 }
 
 Book.prototype.toggleRead = function () {
-    this.read = !this.read;
-};
+    this.read = !this.read
+}
 
 function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read)
@@ -53,46 +53,46 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayBooks() {
 
-    booksGrid.innerHTML = "";
+    booksGrid.innerHTML = ""
     if (myLibrary.length === 0) {
-        booksGrid.style.display = "none";
-        emptyState.style.display = "flex";
-        noResultsState.style.display = "none";
-        updateLibraryStats();
-        return;
+        booksGrid.style.display = "none"
+        emptyState.style.display = "flex"
+        noResultsState.style.display = "none"
+        updateLibraryStats()
+        return
     }
 
-    booksGrid.style.display = "grid";
-    emptyState.style.display = "none";
+    booksGrid.style.display = "grid"
+    emptyState.style.display = "none"
     const filteredBooks = myLibrary.filter((book) => {
-        const title = book.title.toLowerCase();
-        const author = book.author.toLowerCase();
+        const title = book.title.toLowerCase()
+        const author = book.author.toLowerCase()
 
         const matchesSearch =
             title.includes(searchTerm) ||
-            author.includes(searchTerm);
+            author.includes(searchTerm)
 
         const matchesFilter =
             filterStatus === "all" ||
             (filterStatus === "read" && book.read) ||
-            (filterStatus === "unread" && !book.read);
+            (filterStatus === "unread" && !book.read)
 
-        return matchesSearch && matchesFilter;
-    });
+        return matchesSearch && matchesFilter
+    })
 
     if (filteredBooks.length === 0) {
-        booksGrid.style.display = "none";
-        noResultsState.style.display = "flex";
-        updateLibraryStats();
-        return;
+        booksGrid.style.display = "none"
+        noResultsState.style.display = "flex"
+        updateLibraryStats()
+        return
     }
 
     filteredBooks.forEach((book) => {
-        const bookCard = document.createElement("article");
+        const bookCard = document.createElement("article")
 
-        bookCard.classList.add("book-card");
+        bookCard.classList.add("book-card")
 
-        bookCard.dataset.bookId = book.id;
+        bookCard.dataset.bookId = book.id
 
         bookCard.innerHTML = `
             <div class="book-cover">
@@ -126,132 +126,132 @@ function displayBooks() {
                     </button>
                 </div>
             </div>
-        `;
+        `
 
-        booksGrid.appendChild(bookCard);
-    });
-    updateLibraryStats();
+        booksGrid.appendChild(bookCard)
+    })
+    updateLibraryStats()
 }
 
 function openBookDialog() {
-    bookDialog.showModal();
+    bookDialog.showModal()
 }
 
-newBookButton.addEventListener("click", openBookDialog);
+newBookButton.addEventListener("click", openBookDialog)
 
 function closeBookDialog() {
-    bookForm.reset();
-    bookDialog.close();
+    bookForm.reset()
+    bookDialog.close()
 }
 
-closeDialogButton.addEventListener("click", closeBookDialog);
+closeDialogButton.addEventListener("click", closeBookDialog)
 
-cancelBookButton.addEventListener("click", closeBookDialog);
+cancelBookButton.addEventListener("click", closeBookDialog)
 
 bookForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    const title = document.querySelector("#book-title").value.trim();
-    const author = document.querySelector("#book-author").value.trim();
-    const pages = document.querySelector("#book-pages").value;
+    const title = document.querySelector("#book-title").value.trim()
+    const author = document.querySelector("#book-author").value.trim()
+    const pages = document.querySelector("#book-pages").value
 
     const readStatus = document.querySelector(
         'input[name="read-status"]:checked'
-    ).value;
+    ).value
 
     if (!title || !author || !pages) {
-        return;
+        return
     }
 
-    const pageCount = Number(pages);
+    const pageCount = Number(pages)
     if (pageCount <= 0) {
-        return;
+        return
     }
 
-    const read = readStatus === "read";
+    const read = readStatus === "read"
 
-    addBookToLibrary(title, author, pageCount, read);
+    addBookToLibrary(title, author, pageCount, read)
 
-    displayBooks();
+    displayBooks()
 
-    bookDialog.close();
-    bookForm.reset();
-});
+    bookDialog.close()
+    bookForm.reset()
+})
 
 
 
 booksGrid.addEventListener("click", (event) => {
-    const bookCard = event.target.closest(".book-card");
+    const bookCard = event.target.closest(".book-card")
 
     if (!bookCard) {
-        return;
+        return
     }
 
-    const bookId = bookCard.dataset.bookId;
+    const bookId = bookCard.dataset.bookId
 
-    const book = myLibrary.find((book) => book.id === bookId);
+    const book = myLibrary.find((book) => book.id === bookId)
 
     if (event.target.classList.contains("book-remove")) {
-        const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
+        const bookIndex = myLibrary.findIndex((book) => book.id === bookId)
 
         if (bookIndex !== -1) {
-            myLibrary.splice(bookIndex, 1);
-            displayBooks();
+            myLibrary.splice(bookIndex, 1)
+            displayBooks()
         }
 
-        return;
+        return
     }
 
     if (event.target.classList.contains("book-toggle")) {
-        book.toggleRead();
-        displayBooks();
+        book.toggleRead()
+        displayBooks()
     }
-});
+})
 
 function updateLibraryStats() {
-    const total = myLibrary.length;
+    const total = myLibrary.length
 
-    const read = myLibrary.filter((book) => book.read).length;
+    const read = myLibrary.filter((book) => book.read).length
 
-    const unread = myLibrary.filter((book) => !book.read).length;
+    const unread = myLibrary.filter((book) => !book.read).length
 
-    const reading = 0;
+    const reading = 0
 
-    totalBooks.textContent = total;
-    booksRead.textContent = read;
-    booksReading.textContent = reading;
-    booksUnread.textContent = unread;
+    totalBooks.textContent = total
+    booksRead.textContent = read
+    booksReading.textContent = reading
+    booksUnread.textContent = unread
 }
 
 searchInput.addEventListener("input", () => {
-    searchTerm = searchInput.value.toLowerCase().trim();
+    searchTerm = searchInput.value.toLowerCase().trim()
 
-    displayBooks();
-});
+    displayBooks()
+})
 
 bookFilter.addEventListener("change", () => {
-    filterStatus = bookFilter.value;
+    filterStatus = bookFilter.value
 
-    displayBooks();
-});
+    displayBooks()
+})
 
 bookDialog.addEventListener("click", (event) => {
     if (event.target === bookDialog) {
-        bookDialog.close();
-        bookForm.reset();
+        bookDialog.close()
+        bookForm.reset()
     }
-});
+})
 
 themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-theme");
+    document.body.classList.toggle("dark-theme")
 
-    const isDark = document.body.classList.contains("dark-theme");
+    const isDark = document.body.classList.contains("dark-theme")
 
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-});
+    localStorage.setItem("theme", isDark ? "dark" : "light")
+})
 
-const savedTheme = localStorage.getItem("theme");
+const savedTheme = localStorage.getItem("theme")
 
 if (savedTheme === "dark") {
-    document.body.classList.add("dark-theme");
+    document.body.classList.add("dark-theme")
 }
