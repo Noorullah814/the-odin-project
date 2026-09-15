@@ -5,49 +5,49 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 16px;
-    scroll-behavior: smooth;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-    min-height: 100vh;
-    font-family: "Geist", sans-serif;
-    background-color: #fcf8ff;
-    color: #1b1b22;
-    line-height: 1.6;
+  min-height: 100vh;
+  font-family: "Geist", sans-serif;
+  background-color: #fcf8ff;
+  color: #1b1b22;
+  line-height: 1.6;
 }
 
 button,
 input,
 select,
 textarea {
-    font: inherit;
+  font: inherit;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 img,
 svg {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 ul,
 ol {
-    list-style: none;
+  list-style: none;
 }
 
 
@@ -57,86 +57,86 @@ ol {
 
 :root {
 
-    /* ---------- Colors ---------- */
+  /* ---------- Colors ---------- */
 
-    --surface: #fcf8ff;
-    --surface-dim: #dcd8e3;
-    --surface-bright: #fcf8ff;
+  --surface: #fcf8ff;
+  --surface-dim: #dcd8e3;
+  --surface-bright: #fcf8ff;
 
-    --surface-container-lowest: #ffffff;
-    --surface-container-low: #f6f2fc;
-    --surface-container: #f0ecf6;
-    --surface-container-high: #eae6f1;
-    --surface-container-highest: #e4e1eb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f6f2fc;
+  --surface-container: #f0ecf6;
+  --surface-container-high: #eae6f1;
+  --surface-container-highest: #e4e1eb;
 
-    --text-primary: #1b1b22;
-    --text-secondary: #464553;
+  --text-primary: #1b1b22;
+  --text-secondary: #464553;
 
-    --outline: #777584;
-    --outline-variant: #c8c4d5;
+  --outline: #777584;
+  --outline-variant: #c8c4d5;
 
-    --primary: #1f108e;
-    --primary-container: #3730a3;
-    --on-primary: #ffffff;
+  --primary: #1f108e;
+  --primary-container: #3730a3;
+  --on-primary: #ffffff;
 
-    --primary-fixed: #e2dfff;
-    --primary-fixed-dim: #c3c0ff;
+  --primary-fixed: #e2dfff;
+  --primary-fixed-dim: #c3c0ff;
 
-    --error: #ba1a1a;
-    --error-container: #ffdad6;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
 
-    /* ---------- Typography ---------- */
+  /* ---------- Typography ---------- */
 
-    --font-family: "Geist", sans-serif;
+  --font-family: "Geist", sans-serif;
 
-    --font-display: 48px;
-    --font-headline-lg: 32px;
-    --font-headline-md: 24px;
-    --font-headline-sm: 20px;
+  --font-display: 48px;
+  --font-headline-lg: 32px;
+  --font-headline-md: 24px;
+  --font-headline-sm: 20px;
 
-    --font-body-lg: 18px;
-    --font-body-md: 16px;
-    --font-body-sm: 14px;
+  --font-body-lg: 18px;
+  --font-body-md: 16px;
+  --font-body-sm: 14px;
 
-    --font-label-md: 14px;
-    --font-label-sm: 12px;
+  --font-label-md: 14px;
+  --font-label-sm: 12px;
 
-    /* ---------- Spacing ---------- */
+  /* ---------- Spacing ---------- */
 
-    --space-4: 4px;
-    --space-8: 8px;
-    --space-12: 12px;
-    --space-16: 16px;
-    --space-24: 24px;
-    --space-32: 32px;
-    --space-48: 48px;
-    --space-64: 64px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
 
-    /* ---------- Radius ---------- */
+  /* ---------- Radius ---------- */
 
-    --radius-sm: 4px;
-    --radius-default: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
-    --radius-pill: 9999px;
+  --radius-sm: 4px;
+  --radius-default: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
 
-    /* ---------- Borders ---------- */
+  /* ---------- Borders ---------- */
 
-    --border-color: #e5e5e1;
+  --border-color: #e5e5e1;
 
-    /* ---------- Shadows ---------- */
+  /* ---------- Shadows ---------- */
 
-    --shadow-card:
-        0 4px 20px rgba(26, 26, 26, 0.04);
+  --shadow-card:
+    0 4px 20px rgba(26, 26, 26, 0.04);
 
-    --shadow-card-hover:
-        0 8px 30px rgba(26, 26, 26, 0.08);
+  --shadow-card-hover:
+    0 8px 30px rgba(26, 26, 26, 0.08);
 
-    /* ---------- Layout ---------- */
+  /* ---------- Layout ---------- */
 
-    --content-width: 1400px;
-    --page-padding: 48px;
+  --content-width: 1400px;
+  --page-padding: 48px;
 }
 
 
@@ -145,15 +145,15 @@ ol {
 ========================================================= */
 
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* =========================================================
@@ -161,15 +161,15 @@ ol {
 ========================================================= */
 
 .app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
-    width: min(100% - (var(--page-padding) * 2), var(--content-width));
-    margin: 0 auto;
-    flex: 1;
+  width: min(100% - (var(--page-padding) * 2), var(--content-width));
+  margin: 0 auto;
+  flex: 1;
 }
 
 /* =========================================================
@@ -177,139 +177,139 @@ ol {
 ========================================================= */
 
 .header {
-    width: 100%;
-    min-height: 76px;
+  width: 100%;
+  min-height: 76px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    padding: 0 var(--page-padding);
+  padding: 0 var(--page-padding);
 
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--surface-container-lowest);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--surface-container-lowest);
 }
 
 
 /* ---------- Brand ---------- */
 
 .brand {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-12);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-12);
 
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .brand-logo {
-    width: 36px;
-    height: 36px;
+  width: 36px;
+  height: 36px;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    border-radius: var(--radius-default);
+  border-radius: var(--radius-default);
 
-    background-color: var(--primary);
-    color: var(--on-primary);
+  background-color: var(--primary);
+  color: var(--on-primary);
 
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .brand-name {
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 
 /* ---------- Header Actions ---------- */
 
 .header-actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-12);
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
 }
 
 
 /* ---------- Icon Button ---------- */
 
 .icon-button {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    border: 1px solid transparent;
-    border-radius: var(--radius-default);
+  border: 1px solid transparent;
+  border-radius: var(--radius-default);
 
-    background-color: transparent;
-    color: var(--text-secondary);
+  background-color: transparent;
+  color: var(--text-secondary);
 
-    transition:
-        background-color 180ms ease,
-        color 180ms ease,
-        border-color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
 }
 
 .icon-button:hover {
-    background-color: var(--surface-container);
-    color: var(--text-primary);
+  background-color: var(--surface-container);
+  color: var(--text-primary);
 }
 
 .icon-button:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 
 /* ---------- Profile ---------- */
 
 .profile-button {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
 
-    padding: 6px 10px 6px 6px;
+  padding: 6px 10px 6px 6px;
 
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
 
-    background-color: var(--surface-container-lowest);
-    color: var(--text-primary);
+  background-color: var(--surface-container-lowest);
+  color: var(--text-primary);
 
-    transition:
-        background-color 180ms ease,
-        box-shadow 180ms ease;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .profile-button:hover {
-    background-color: var(--surface-container-low);
-    box-shadow: var(--shadow-card);
+  background-color: var(--surface-container-low);
+  box-shadow: var(--shadow-card);
 }
 
 .profile-avatar {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background-color: var(--primary-fixed);
-    color: var(--primary);
+  background-color: var(--primary-fixed);
+  color: var(--primary);
 
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .profile-name {
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* =========================================================
@@ -317,58 +317,58 @@ ol {
 ========================================================= */
 
 .hero {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--space-32);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-32);
 
-    padding: 72px 0 48px;
+  padding: 72px 0 48px;
 }
 
 .hero-content {
-    max-width: 680px;
+  max-width: 680px;
 }
 
 
 /* ---------- Eyebrow ---------- */
 
 .eyebrow {
-    display: inline-block;
+  display: inline-block;
 
-    margin-bottom: var(--space-12);
+  margin-bottom: var(--space-12);
 
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 
-    font-size: var(--font-label-sm);
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    line-height: 1.2;
+  font-size: var(--font-label-sm);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
 }
 
 
 /* ---------- Hero Heading ---------- */
 
 .hero h1 {
-    margin-bottom: var(--space-16);
+  margin-bottom: var(--space-16);
 
-    color: var(--text-primary);
+  color: var(--text-primary);
 
-    font-size: var(--font-display);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+  font-size: var(--font-display);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 
 /* ---------- Hero Description ---------- */
 
 .hero p {
-    max-width: 560px;
+  max-width: 560px;
 
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 
-    font-size: var(--font-body-lg);
-    line-height: 1.6;
+  font-size: var(--font-body-lg);
+  line-height: 1.6;
 }
 
 
@@ -378,69 +378,69 @@ ol {
 
 .primary-button,
 .secondary-button {
-    min-height: 44px;
+  min-height: 44px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
 
-    padding: 0 18px;
+  padding: 0 18px;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    font-size: 14px;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 600;
 
-    transition:
-        background-color 180ms ease,
-        border-color 180ms ease,
-        color 180ms ease,
-        box-shadow 180ms ease,
-        transform 180ms ease;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 
 /* ---------- Primary ---------- */
 
 .primary-button {
-    border: 1px solid var(--primary);
-    background-color: var(--primary);
-    color: var(--on-primary);
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: var(--on-primary);
 }
 
 .primary-button:hover {
-    background-color: var(--primary-container);
-    border-color: var(--primary-container);
-    box-shadow: var(--shadow-card);
+  background-color: var(--primary-container);
+  border-color: var(--primary-container);
+  box-shadow: var(--shadow-card);
 }
 
 .primary-button:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
 
 .primary-button:focus-visible,
 .secondary-button:focus-visible {
-    outline: 2px solid rgba(31, 16, 142, 0.3);
-    outline-offset: 2px;
+  outline: 2px solid rgba(31, 16, 142, 0.3);
+  outline-offset: 2px;
 }
 
 
 /* ---------- Secondary ---------- */
 
 .secondary-button {
-    border: 1px solid var(--border-color);
-    background-color: var(--surface-container-lowest);
-    color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-container-lowest);
+  color: var(--text-primary);
 }
 
 .secondary-button:hover {
-    background-color: var(--surface-container-low);
-    border-color: var(--outline-variant);
+  background-color: var(--surface-container-low);
+  border-color: var(--outline-variant);
 }
 
 .secondary-button:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
 
 /* =========================================================
@@ -448,53 +448,53 @@ ol {
 ========================================================= */
 
 .library-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
 
-    margin-bottom: var(--space-64);
+  margin-bottom: var(--space-64);
 }
 
 .stat-card {
-    padding: var(--space-24);
+  padding: var(--space-24);
 
-    background-color: var(--surface-container-lowest);
+  background-color: var(--surface-container-lowest);
 
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
 
-    box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card);
 
-    transition:
-        box-shadow 180ms ease,
-        transform 180ms ease;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .stat-card:hover {
-    box-shadow: var(--shadow-card-hover);
-    transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
 }
 
 .stat-label {
-    display: block;
+  display: block;
 
-    margin-bottom: var(--space-8);
+  margin-bottom: var(--space-8);
 
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 
-    font-size: var(--font-body-sm);
-    font-weight: 500;
+  font-size: var(--font-body-sm);
+  font-weight: 500;
 }
 
 .stat-value {
-    display: block;
+  display: block;
 
-    color: var(--text-primary);
+  color: var(--text-primary);
 
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 /* =========================================================
@@ -502,25 +502,25 @@ ol {
 ========================================================= */
 
 .library-section {
-    margin-bottom: var(--space-64);
+  margin-bottom: var(--space-64);
 }
 
 .section-header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--space-24);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-24);
 
-    margin-bottom: var(--space-32);
+  margin-bottom: var(--space-32);
 }
 
 .section-header h2 {
-    color: var(--text-primary);
+  color: var(--text-primary);
 
-    font-size: var(--font-headline-lg);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+  font-size: var(--font-headline-lg);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 /* =========================================================
@@ -528,98 +528,98 @@ ol {
 ========================================================= */
 
 .library-controls {
-    display: flex;
-    align-items: center;
-    gap: var(--space-12);
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
 }
 
 
 /* ---------- Search ---------- */
 
 .search-form {
-    width: 280px;
-    height: 44px;
+  width: 280px;
+  height: 44px;
 
-    display: flex;
-    align-items: center;
-    gap: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
 
-    padding: 0 var(--space-12);
+  padding: 0 var(--space-12);
 
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-pill);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
 
-    background-color: var(--surface-container-lowest);
+  background-color: var(--surface-container-lowest);
 
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 
-    transition:
-        border-color 180ms ease,
-        box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .search-form:focus-within {
-    border-color: var(--primary);
+  border-color: var(--primary);
 
-    box-shadow:
-        0 0 0 3px rgba(31, 16, 142, 0.10);
+  box-shadow:
+    0 0 0 3px rgba(31, 16, 142, 0.10);
 }
 
 .search-form svg {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .search-form input {
-    width: 100%;
+  width: 100%;
 
-    border: 0;
-    outline: 0;
+  border: 0;
+  outline: 0;
 
-    background: transparent;
-    color: var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
 
-    font-size: var(--font-body-sm);
+  font-size: var(--font-body-sm);
 }
 
 .search-form input::placeholder {
-    color: var(--outline);
+  color: var(--outline);
 }
 
 
 /* ---------- Filter ---------- */
 
 #book-filter {
-    height: 44px;
+  height: 44px;
 
-    padding: 0 36px 0 14px;
+  padding: 0 36px 0 14px;
 
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
 
-    background-color: var(--surface-container-lowest);
-    color: var(--text-primary);
+  background-color: var(--surface-container-lowest);
+  color: var(--text-primary);
 
-    font-size: var(--font-body-sm);
-    font-weight: 500;
+  font-size: var(--font-body-sm);
+  font-weight: 500;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    outline: none;
+  outline: none;
 
-    transition:
-        border-color 180ms ease,
-        box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 #book-filter:hover {
-    border-color: var(--outline-variant);
+  border-color: var(--outline-variant);
 }
 
 #book-filter:focus-visible {
-    border-color: var(--primary);
+  border-color: var(--primary);
 
-    box-shadow:
-        0 0 0 3px rgba(31, 16, 142, 0.10);
+  box-shadow:
+    0 0 0 3px rgba(31, 16, 142, 0.10);
 }
 
 /* =========================================================
@@ -627,11 +627,11 @@ ol {
 ========================================================= */
 
 .books-grid {
-    display: grid;
+  display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    gap: var(--space-24);
+  gap: var(--space-24);
 }
 
 /* =========================================================
@@ -639,27 +639,27 @@ ol {
 ========================================================= */
 
 .book-card {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    min-width: 0;
-    overflow: hidden;
+  min-width: 0;
+  overflow: hidden;
 
-    background-color: var(--surface-container-lowest);
+  background-color: var(--surface-container-lowest);
 
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
 
-    box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-card);
 
-    transition:
-        transform 200ms ease,
-        box-shadow 200ms ease;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .book-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* =========================================================
@@ -667,21 +667,21 @@ ol {
 ========================================================= */
 
 .book-cover {
-    width: 100%;
-    height: 270px;
-    background-color: #f6f2fc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-bottom: 1px solid #e5e5e1;
+  width: 100%;
+  height: 270px;
+  background-color: #f6f2fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid #e5e5e1;
 }
 
 .book-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 /* =========================================================
@@ -689,29 +689,29 @@ ol {
 ========================================================= */
 
 .book-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 
-    padding: var(--space-24);
+  padding: var(--space-24);
 }
 
 .book-title {
-    margin-bottom: var(--space-4);
+  margin-bottom: var(--space-4);
 
-    color: var(--text-primary);
+  color: var(--text-primary);
 
-    font-size: var(--font-headline-sm);
-    font-weight: 600;
-    line-height: 1.4;
+  font-size: var(--font-headline-sm);
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 .book-author {
-    margin-bottom: var(--space-16);
+  margin-bottom: var(--space-16);
 
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 
-    font-size: var(--font-body-sm);
+  font-size: var(--font-body-sm);
 }
 
 /* =========================================================
@@ -719,18 +719,18 @@ ol {
 ========================================================= */
 
 .book-meta {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-8);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-8);
 
-    margin-bottom: var(--space-24);
+  margin-bottom: var(--space-24);
 }
 
 .book-pages {
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 
-    font-size: var(--font-body-sm);
+  font-size: var(--font-body-sm);
 }
 
 /* =========================================================
@@ -738,28 +738,28 @@ ol {
 ========================================================= */
 
 .book-status {
-    display: inline-flex;
-    align-items: center;
+  display: inline-flex;
+  align-items: center;
 
-    width: fit-content;
+  width: fit-content;
 
-    padding: 5px 10px;
+  padding: 5px 10px;
 
-    border-radius: var(--radius-pill);
+  border-radius: var(--radius-pill);
 
-    font-size: var(--font-label-sm);
-    font-weight: 600;
-    line-height: 1.2;
+  font-size: var(--font-label-sm);
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .book-status.read {
-    background-color: rgba(34, 197, 94, 0.10);
-    color: #166534;
+  background-color: rgba(34, 197, 94, 0.10);
+  color: #166534;
 }
 
 .book-status.unread {
-    background-color: rgba(95, 94, 94, 0.10);
-    color: var(--text-secondary);
+  background-color: rgba(95, 94, 94, 0.10);
+  color: var(--text-secondary);
 }
 
 /* =========================================================
@@ -767,50 +767,50 @@ ol {
 ========================================================= */
 
 .book-actions {
-    display: flex;
-    gap: var(--space-8);
+  display: flex;
+  gap: var(--space-8);
 
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .book-actions button {
-    flex: 1;
+  flex: 1;
 
-    min-height: 40px;
+  min-height: 40px;
 
-    padding: 0 var(--space-12);
+  padding: 0 var(--space-12);
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    font-size: var(--font-body-sm);
-    font-weight: 600;
+  font-size: var(--font-body-sm);
+  font-weight: 600;
 
-    transition:
-        background-color 180ms ease,
-        border-color 180ms ease,
-        color 180ms ease;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .book-toggle {
-    border: 1px solid var(--primary);
-    background-color: transparent;
-    color: var(--primary);
+  border: 1px solid var(--primary);
+  background-color: transparent;
+  color: var(--primary);
 }
 
 .book-toggle:hover {
-    background-color: var(--primary-fixed);
+  background-color: var(--primary-fixed);
 }
 
 .book-remove {
-    border: 1px solid var(--border-color);
-    background-color: var(--surface-container-lowest);
-    color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-container-lowest);
+  color: var(--text-secondary);
 }
 
 .book-remove:hover {
-    border-color: var(--error);
-    background-color: var(--error-container);
-    color: var(--error);
+  border-color: var(--error);
+  background-color: var(--error-container);
+  color: var(--error);
 }
 
 /* =========================================================
@@ -818,56 +818,56 @@ ol {
 ========================================================= */
 
 .empty-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    min-height: 320px;
+  min-height: 320px;
 
-    padding: var(--space-48);
+  padding: var(--space-48);
 
-    border: 1px dashed var(--outline-variant);
-    border-radius: var(--radius-xl);
+  border: 1px dashed var(--outline-variant);
+  border-radius: var(--radius-xl);
 
-    background-color: var(--surface-container-low);
+  background-color: var(--surface-container-low);
 
-    text-align: center;
+  text-align: center;
 }
 
 .empty-icon {
-    width: 56px;
-    height: 56px;
+  width: 56px;
+  height: 56px;
 
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    margin-bottom: var(--space-16);
+  margin-bottom: var(--space-16);
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background-color: var(--primary-fixed);
+  background-color: var(--primary-fixed);
 
-    font-size: 26px;
+  font-size: 26px;
 }
 
 .empty-state h3 {
-    margin-bottom: var(--space-8);
+  margin-bottom: var(--space-8);
 
-    color: var(--text-primary);
+  color: var(--text-primary);
 
-    font-size: var(--font-headline-sm);
-    font-weight: 600;
+  font-size: var(--font-headline-sm);
+  font-weight: 600;
 }
 
 .empty-state p {
-    max-width: 420px;
+  max-width: 420px;
 
-    margin-bottom: var(--space-24);
+  margin-bottom: var(--space-24);
 
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 
-    font-size: var(--font-body-md);
+  font-size: var(--font-body-md);
 }
 
 /* ========================================
@@ -1012,7 +1012,7 @@ ol {
   gap: 8px;
 }
 
-.read-status > span {
+.read-status>span {
   color: #1b1b22;
   font-size: 14px;
   font-weight: 600;
@@ -1057,13 +1057,13 @@ ol {
   border-color: #777584;
 }
 
-.radio-option input:checked + label {
+.radio-option input:checked+label {
   border-color: #1f108e;
   background: #e2dfff;
   color: #1f108e;
 }
 
-.radio-option input:focus-visible + label {
+.radio-option input:focus-visible+label {
   outline: 2px solid #1f108e;
   outline-offset: 2px;
 }
@@ -1245,3 +1245,182 @@ ol {
   }
 }
 
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+body.dark-theme {
+  /* ---------- Surfaces ---------- */
+  --surface: #12111a;
+  --surface-dim: #0f0e15;
+  --surface-bright: #1c1a25;
+
+  --surface-container-lowest: #1b1a24;
+  --surface-container-low: #211f2a;
+  --surface-container: #272533;
+  --surface-container-high: #2e2c39;
+  --surface-container-highest: #353240;
+
+  /* ---------- Text ---------- */
+  --text-primary: #f5f2ff;
+  --text-secondary: #b8b4c7;
+
+  /* ---------- Borders ---------- */
+  --outline: #aaa5b8;
+  --outline-variant: #454250;
+  --border-color: #393743;
+
+  /* ---------- Primary ---------- */
+  --primary: #a69cff;
+  --primary-container: #7c70ff;
+  --on-primary: #151321;
+
+  --primary-fixed: #332d66;
+  --primary-fixed-dim: #47408a;
+
+  /* ---------- Error ---------- */
+  --error: #ffb4ab;
+  --error-container: #5c1d20;
+
+  /* ---------- Shadows ---------- */
+  --shadow-card:
+    0 4px 20px rgba(0, 0, 0, 0.20);
+
+  --shadow-card-hover:
+    0 8px 30px rgba(0, 0, 0, 0.32);
+
+  /* ---------- Page ---------- */
+  background-color: var(--surface);
+  color: var(--text-primary);
+}
+
+/* ---------- Dark Dialog ---------- */
+
+body.dark-theme .book-dialog {
+  background: var(--surface-container-lowest);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-theme .dialog-header {
+  border-bottom-color: var(--border-color);
+}
+
+body.dark-theme .dialog-title,
+body.dark-theme .dialog-header h2 {
+  color: var(--text-primary);
+}
+
+body.dark-theme .dialog-description {
+  color: var(--text-secondary);
+}
+
+body.dark-theme .dialog-close {
+  border-color: var(--border-color);
+  background-color: var(--surface-container);
+  color: var(--text-secondary);
+}
+
+body.dark-theme .dialog-close:hover {
+  border-color: var(--outline);
+  background-color: var(--surface-container-high);
+  color: var(--text-primary);
+}
+
+/* ---------- Dark Form ---------- */
+
+body.dark-theme .form-field label,
+body.dark-theme .form-group label,
+body.dark-theme .read-status>span,
+body.dark-theme .form-field legend {
+  color: var(--text-primary);
+}
+
+body.dark-theme .form-field input,
+body.dark-theme .form-field select,
+body.dark-theme .form-group input,
+body.dark-theme .form-group select {
+  background-color: var(--surface-container);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-theme .form-field input::placeholder,
+body.dark-theme .form-group input::placeholder {
+  color: var(--outline);
+}
+
+body.dark-theme .form-field input:hover,
+body.dark-theme .form-field select:hover,
+body.dark-theme .form-group input:hover,
+body.dark-theme .form-group select:hover {
+  border-color: var(--outline);
+}
+
+body.dark-theme .form-field input:focus,
+body.dark-theme .form-field select:focus,
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(166, 156, 255, 0.15);
+}
+
+body.dark-theme .radio-option label {
+  border-color: var(--border-color);
+  background-color: var(--surface-container);
+  color: var(--text-secondary);
+}
+
+body.dark-theme .radio-option label:hover {
+  border-color: var(--outline);
+  background-color: var(--surface-container-high);
+}
+
+body.dark-theme .radio-option input:checked+label {
+  border-color: var(--primary);
+  background-color: var(--primary-fixed);
+  color: var(--primary);
+}
+
+body.dark-theme .form-actions {
+  border-top-color: var(--border-color);
+}
+
+body.dark-theme .book-cover {
+  background-color: #171620;
+  border-bottom-color: var(--border-color);
+}
+
+body.dark-theme .empty-state {
+  background-color: var(--surface-container-low);
+  border-color: var(--outline-variant);
+}
+
+body.dark-theme .empty-icon {
+  background-color: var(--primary-fixed);
+}
+
+body.dark-theme .book-status.read {
+  background-color: rgba(74, 222, 128, 0.12);
+  color: #86efac;
+}
+
+body.dark-theme .book-status.unread {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+}
+
+body.dark-theme .book-cover {
+  background-color: #171620;
+  border-bottom-color: var(--border-color);
+}
+
+body.dark-theme .footer {
+  border-top-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+body.dark-theme .form-actions {
+  border-top-color: var(--border-color);
+}
