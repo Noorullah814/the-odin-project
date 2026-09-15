@@ -668,22 +668,20 @@ ol {
 
 .book-cover {
     width: 100%;
-    aspect-ratio: 3 / 2;
-
+    height: 270px;
+    background-color: #f6f2fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-
-    background-color: var(--surface-container);
-
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #e5e5e1;
 }
 
 .book-cover img {
     width: 100%;
     height: 100%;
-
-    object-fit: cover;
-
-    border-radius: var(--radius-sm);
+    object-fit: contain;
+    display: block;
 }
 
 /* =========================================================
@@ -1247,35 +1245,3 @@ ol {
   }
 }
 
-.no-results-state {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 64px 24px;
-}
-
-.no-results-state h3 {
-    margin-bottom: 8px;
-}
-
-.no-results-state p {
-    color: var(--text-secondary);
-}
-
-.dark-theme {
-    background-color: #1b1b22;
-    color: #fcf8ff;
-}
-
-.dark-theme .header,
-.dark-theme .stat-card,
-.dark-theme .book-card {
-    background-color: #272631;
-}
-
-.dark-theme .book-info,
-.dark-theme .library-section {
-    color: #fcf8ff;
-}
