@@ -24,6 +24,8 @@ const bookFilter = document.querySelector("#book-filter")
 
 const themeToggle = document.querySelector("#theme-toggle")
 
+const bookCover = document.querySelector("#book-cover")
+
 const cancelBookButton = document.querySelector(
     ".form-actions .close-dialog"
 )
@@ -34,11 +36,12 @@ let filterStatus = "all"
 
 // Book constructor
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, cover) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
+     this.cover = cover
     this.id = crypto.randomUUID()
 }
 
@@ -46,8 +49,8 @@ Book.prototype.toggleRead = function () {
     this.read = !this.read
 }
 
-function addBookToLibrary(title, author, pages, read) {
-    const book = new Book(title, author, pages, read)
+function addBookToLibrary(title, author, pages, read, cover) {
+    const book = new Book(title, author, pages, read, cover)
     myLibrary.push(book)
 }
 
@@ -96,7 +99,7 @@ function displayBooks() {
 
         bookCard.innerHTML = `
             <div class="book-cover">
-               <img src="assets/book-cover-placeholder.jpg" alt="Book cover placeholder">
+               <img src="${book.cover}" alt="Cover of ${book.title}">
             </div>
 
             <div class="book-info">
@@ -154,6 +157,7 @@ bookForm.addEventListener("submit", (event) => {
     const title = document.querySelector("#book-title").value.trim()
     const author = document.querySelector("#book-author").value.trim()
     const pages = document.querySelector("#book-pages").value
+    const cover = bookCover.value
 
     const readStatus = document.querySelector(
         'input[name="read-status"]:checked'
@@ -170,7 +174,7 @@ bookForm.addEventListener("submit", (event) => {
 
     const read = readStatus === "read"
 
-    addBookToLibrary(title, author, pageCount, read)
+    addBookToLibrary(title, author, pageCount, read, cover)
 
     displayBooks()
 
