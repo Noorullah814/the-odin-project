@@ -31,3 +31,8 @@ const Gameboard = (function () {
     }
 
 })()
+
+function Player(name,mark)
+{
+    return {name,mark}
+}
