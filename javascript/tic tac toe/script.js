@@ -38,12 +38,14 @@ function Player(name, mark) {
 
 const GameController = (function () {
 
+
     const playerOne = Player("Noor", "X")
     const playerTwo = Player("Yar", "O")
 
     let activePlayer = playerOne
 
     let isGameOver = false
+    let resultMessage = ""
 
     const winningCombinations = [
         [0, 1, 2],
@@ -91,13 +93,13 @@ const GameController = (function () {
 
             if (checkWin()) {
                 isGameOver = true
-                console.log(`${activePlayer.name} wins!`)
+                resultMessage = `${activePlayer.name} wins!`
                 return
             }
             if (!Gameboard.getBoard().includes("")) {
 
                 isGameOver = true
-                console.log("It's tie")
+                resultMessage = "It's tie"
                 return
             }
 
@@ -110,9 +112,22 @@ const GameController = (function () {
         return activePlayer
     }
 
+    const getMessage = () => {
+        return resultMessage
+    }
+
+    const restartGame = () => {
+        Gameboard.resetBoard()
+        activePlayer = playerOne
+        resultMessage = ""
+        isGameOver = false
+    }
+
     return {
         playRound,
-        getActivePlayer
+        getActivePlayer,
+        getMessage,
+        restartGame
     }
 
 
@@ -120,6 +135,8 @@ const GameController = (function () {
 
 const DisplayController = (function () {
     const game_board = document.querySelector("#game-board")
+    const displayStatus = document.querySelector("#status-display")
+    const restartBtn = document.querySelector("#restart-btn")
 
     function render() {
         game_board.textContent = ""
@@ -131,6 +148,14 @@ const DisplayController = (function () {
             container.classList.add("square")
             game_board.appendChild(container)
 
+        }
+        const message = GameController.getMessage();
+
+        if (message !== "") {
+            displayStatus.textContent = message;
+        }
+        else {
+            displayStatus.textContent = `${GameController.getActivePlayer().name}'s turn!`;
         }
     }
 
@@ -145,8 +170,15 @@ const DisplayController = (function () {
     }
     game_board.addEventListener("click", handleBoardClick)
 
+    restartBtn.addEventListener("click", () => {
+        GameController.restartGame()
+        render()
+    })
+
     return {
         render
     }
 
 })()
+
+DisplayController.render()
