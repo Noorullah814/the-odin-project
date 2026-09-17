@@ -118,26 +118,35 @@ const GameController = (function () {
 
 })()
 
-const DisplayController = (function(){
-    const game_board=document.querySelector("#game-board")
+const DisplayController = (function () {
+    const game_board = document.querySelector("#game-board")
 
-    function render()
-    {
+    function render() {
         game_board.textContent = ""
-       const currentBoard = Gameboard.getBoard()
-        for(let i=0;i<9;i++)
-        {
-            const container=document.createElement("div")
-            container.textContent=currentBoard[i]
-            container.dataset.index=i
+        const currentBoard = Gameboard.getBoard()
+        for (let i = 0; i < 9; i++) {
+            const container = document.createElement("div")
+            container.textContent = currentBoard[i]
+            container.dataset.index = i
             container.classList.add("square")
             game_board.appendChild(container)
 
         }
     }
 
+    const handleBoardClick = (e) => {
+        if (!e.target.classList.contains("square")) {
+            return
+        }
+        const index = e.target.dataset.index
+        GameController.playRound(parseInt(index))
+
+        render()
+    }
+    game_board.addEventListener("click", handleBoardClick)
+
     return {
         render
     }
- 
+
 })()
