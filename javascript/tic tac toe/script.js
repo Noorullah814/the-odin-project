@@ -117,3 +117,27 @@ const GameController = (function () {
 
 
 })()
+
+const DisplayController = (function(){
+    const game_board=document.querySelector("#game-board")
+
+    function render()
+    {
+        game_board.textContent = ""
+       const currentBoard = Gameboard.getBoard()
+        for(let i=0;i<9;i++)
+        {
+            const container=document.createElement("div")
+            container.textContent=currentBoard[i]
+            container.dataset.index=i
+            container.classList.add("square")
+            game_board.appendChild(container)
+
+        }
+    }
+
+    return {
+        render
+    }
+ 
+})()
