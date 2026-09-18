@@ -38,14 +38,14 @@ function Player(name, mark) {
 
 const GameController = (function () {
 
-
-    const setPlayerName=(name1,name2)=>{
-        playerOne.name=name1 || "Player1"
-        playerTwo.name=name2 || "Player2"
-
-    }
     const playerOne = Player("Noor", "X")
     const playerTwo = Player("Yar", "O")
+
+    const setPlayerName = (name1, name2) => {
+        playerOne.name = name1 || "Player1"
+        playerTwo.name = name2 || "Player2"
+
+    }
 
     let activePlayer = playerOne
 
@@ -143,8 +143,8 @@ const DisplayController = (function () {
     const game_board = document.querySelector("#game-board")
     const displayStatus = document.querySelector("#status-display")
     const restartBtn = document.querySelector("#restart-btn")
-    const player1=document.querySelector("#player-one")
-    const player2=document.querySelector("#player-two")
+    const player1 = document.querySelector("#player-one")
+    const player2 = document.querySelector("#player-two")
 
     function render() {
         game_board.textContent = ""
@@ -183,7 +183,7 @@ const DisplayController = (function () {
         render()
     })
 
-   player1.addEventListener("input", () => {
+    player1.addEventListener("input", () => {
         GameController.setPlayerName(player1.value, player2.value)
         render()
     })
