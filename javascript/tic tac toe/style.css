@@ -303,3 +303,47 @@ body {
     color: #A78BFA;
     text-shadow: 0 0 20px rgba(167, 139, 250, 0.25);
 }
+
+#restart-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px 20px;
+
+    background: linear-gradient(135deg, #6366F1, #4F46E5);
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.25);
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+#restart-btn:hover {
+    background: linear-gradient(135deg, #818CF8, #6366F1);
+
+    box-shadow:
+        0 10px 25px rgba(79, 70, 229, 0.35);
+
+    transform: translateY(-1px);
+}
+
+#restart-btn:active {
+    transform: translateY(0);
+}
+
+#restart-btn:focus-visible {
+    outline: 2px solid #818CF8;
+    outline-offset: 3px;
+}
