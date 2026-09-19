@@ -347,3 +347,45 @@ body {
     outline: 2px solid #818CF8;
     outline-offset: 3px;
 }
+
+@media (max-width: 640px) {
+    body {
+        padding: 16px 12px;
+    }
+
+    .game-container {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .game-container h1 {
+        font-size: 1.625rem;
+        margin-bottom: 20px;
+    }
+
+    .players {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    #status-display {
+        margin-bottom: 20px;
+        font-size: 0.875rem;
+    }
+
+    #game-board {
+        gap: 8px;
+        padding: 10px;
+        border-radius: 16px;
+    }
+
+    .square {
+        font-size: 2.25rem;
+        border-radius: 10px;
+    }
+
+    #restart-btn {
+        margin-top: 20px;
+    }
+}
