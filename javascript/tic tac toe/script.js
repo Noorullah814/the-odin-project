@@ -154,6 +154,13 @@ const DisplayController = (function () {
             container.textContent = currentBoard[i]
             container.dataset.index = i
             container.classList.add("square")
+            if (currentBoard[i] === "X") {
+                container.classList.add("x")
+            }
+
+            if (currentBoard[i] === "O") {
+                container.classList.add("o")
+            }
             game_board.appendChild(container)
 
         }
