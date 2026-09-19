@@ -240,3 +240,23 @@ body {
 #status-display:hover {
     border-color: rgba(99, 102, 241, 0.35);
 }
+
+#game-board {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1 / 1;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    padding: 14px;
+
+    background: #080F1D;
+    border: 1px solid #1E293B;
+    border-radius: 20px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.03),
+        0 12px 30px rgba(0, 0, 0, 0.25);
+}
