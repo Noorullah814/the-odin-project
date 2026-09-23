@@ -1,0 +1,42 @@
+:root {
+  --bg-main: #0d0c0b;
+  --bg-surface: #141312;
+  --bg-card: #1a1917;
+
+  --text-primary: #f5f2eb;
+  --text-secondary: #b8b2a5;
+
+  --accent-gold: #c9a86a;
+  --accent-gold-light: #dfc288;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(201, 168, 106, 0.35);
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(201, 168, 106, 0.08),
+      transparent 45%
+    ),
+    var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}

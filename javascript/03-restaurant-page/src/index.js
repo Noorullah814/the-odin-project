@@ -1,6 +1,7 @@
 import loadHomePage from "./home";
 import loadMenuPage from "./menu";
 import loadContactPage from "./contact";
+import "./style.css";
 
 loadHomePage();
 
