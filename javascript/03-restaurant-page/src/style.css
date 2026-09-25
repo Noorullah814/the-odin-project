@@ -138,3 +138,19 @@ nav button:hover {
   margin-bottom: 2rem;
   background: var(--accent-gold);
 }
+
+.about {
+  max-width: 900px;
+  margin: 0 auto;
+   padding: 5rem 2rem 7rem;
+   text-align: center;
+   border-top: 1px solid var(--border-subtle);
+}
+
+.about h2 {
+  font-family: var(--font-heading);
+   font-size: clamp(2.25rem, 5vw, 3.5rem);
+   font-weight: 500;
+   line-height: 1;
+    color: var(--text-primary);
+}
