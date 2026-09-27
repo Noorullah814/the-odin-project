@@ -173,6 +173,9 @@ nav button:hover {
 }
 
 .menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
   padding: 6rem 2rem;
@@ -187,4 +190,6 @@ nav button:hover {
   font-weight: 500;
   line-height: 1;
   color: var(--text-primary);
+  grid-column: 1 / -1;
 }
+
