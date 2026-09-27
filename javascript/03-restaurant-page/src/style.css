@@ -209,3 +209,18 @@ nav button:hover {
   transform: translateY(-5px);
   border-color: var(--border-gold);
 }
+
+.menu article h2 {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--accent-gold-light);
+}
+
+.menu article p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
