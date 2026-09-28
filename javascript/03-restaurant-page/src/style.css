@@ -230,3 +230,11 @@ nav button:hover {
     grid-template-columns: 1fr;
   }
 }
+
+.contact {
+  max-width: 900px;
+   margin: 0 auto;
+   padding: 6rem 2rem 7rem;
+   text-align: center;
+   border-top: 1px solid var(--border-subtle);
+}
