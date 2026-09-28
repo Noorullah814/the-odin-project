@@ -247,3 +247,13 @@ nav button:hover {
   line-height: 1;
   color: var(--text-primary);
 }
+
+.contact p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.contact p + p {
+  margin-top: 0.5rem;
+}
