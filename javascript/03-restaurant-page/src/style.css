@@ -266,3 +266,26 @@ nav button:hover {
   margin: 0 auto 1.5rem;
   background: var(--accent-gold);
 }
+
+@media (max-width: 600px) {
+  header {
+    padding: 1rem;
+  }
+
+  nav {
+    gap: 0.25rem;
+  }
+
+  nav button {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .hero {
+    padding: 5rem 1.25rem 4rem;
+  }
+    .about,
+  .contact {
+    padding: 4rem 1.25rem 5rem;
+  }
+}
