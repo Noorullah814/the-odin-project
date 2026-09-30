@@ -284,8 +284,16 @@ nav button:hover {
   .hero {
     padding: 5rem 1.25rem 4rem;
   }
-    .about,
+  .about,
   .contact {
     padding: 4rem 1.25rem 5rem;
+  }
+
+  .menu {
+    padding: 4rem 1.25rem 5rem;
+  }
+
+  .menu article {
+    padding: 1.5rem;
   }
 }
