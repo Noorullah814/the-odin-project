@@ -1,22 +1,30 @@
-const projectManager = (()=>{
-    const projects = [];
-    let currentProject = null;
+import createProject from "./project.js";
 
-    function getProjects()
-    {
-        return projects;
-    }
+const projectManager = (() => {
+  const projects = [];
+  let currentProject = null;
 
-    function getCurrentProject()
-    {
-        return currentProject;
-    }
+  function addProject(project) {
+    projects.push(project);
+  }
 
-    return{
-        getProjects,
-        getCurrentProject
-    }
+  const defaultProject = createProject("Default");
 
+  addProject(defaultProject);
+  currentProject = defaultProject;
+  function getProjects() {
+    return projects;
+  }
+
+  function getCurrentProject() {
+    return currentProject;
+  }
+
+  return {
+    getProjects,
+    getCurrentProject,
+    addProject,
+  };
 })();
 
 export default projectManager;
