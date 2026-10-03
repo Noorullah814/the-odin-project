@@ -1,6 +1,7 @@
 import createTodo from "./todo.js";
 import createProject from "./project.js";
 import projectManager from "./projectManager.js";
+import "./style.css";
 
 const project = createProject("Work");
 
