@@ -2,20 +2,7 @@ import createTodo from "./todo.js";
 import createProject from "./project.js";
 import projectManager from "./projectManager.js";
 import "./style.css";
-
-const project = createProject("Work");
-
-const todo = createTodo(
-  "Build Todo List",
-  "Complete the Odin Project",
-  "2026-10-10",
-  "high"
-);
-
-project.todos.push(todo);
-
-console.log(project);
+import renderSidebar from "./dom/sidebar.js";
 
 
-console.log(projectManager.getProjects());
-console.log(projectManager.getCurrentProject());
+renderSidebar();
