@@ -20,10 +20,16 @@ const projectManager = (() => {
     return currentProject;
   }
 
+  function addTodo(todo)
+  {
+    currentProject.todos.push(todo);
+  }
+
   return {
     getProjects,
     getCurrentProject,
     addProject,
+    addTodo
   };
 })();
 
