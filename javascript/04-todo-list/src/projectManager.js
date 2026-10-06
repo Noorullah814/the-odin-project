@@ -25,11 +25,16 @@ const projectManager = (() => {
     currentProject.todos.push(todo);
   }
 
+  function toggleTodo(todo){
+    todo.completed = !todo.completed;
+  }
+
   return {
     getProjects,
     getCurrentProject,
     addProject,
-    addTodo
+    addTodo,
+    toggleTodo
   };
 })();
 
