@@ -29,9 +29,11 @@ const projectManager = (() => {
     todo.completed = !todo.completed;
   }
 
-  function deleteTodo(todo){
-    currentProject.todos = currentProject.todos.filter(t => t !== todo);
-  }
+ function deleteTodo(todo) {
+  currentProject.todos = currentProject.todos.filter(
+    (currentTodo) => currentTodo !== todo
+  );
+}
 
   return {
     getProjects,
