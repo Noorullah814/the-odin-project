@@ -35,13 +35,18 @@ const projectManager = (() => {
   );
 }
 
+function updateTodo(todo, updatedData){
+  Object.assign(todo, updatedData);
+}
+
   return {
     getProjects,
     getCurrentProject,
     addProject,
     addTodo,
     toggleTodo,
-    deleteTodo
+    deleteTodo,
+    updateTodo
   };
 })();
 
