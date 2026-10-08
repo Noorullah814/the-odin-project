@@ -13,15 +13,18 @@ const renderTodoList = () => {
     const detailsContainer = document.createElement("div");
     const description = document.createElement("p");
     const completedStatus = document.createElement("p");
+    const editButton = document.createElement("button");
 
     todoTitle.textContent = todo.title;
     todoDueDate.textContent = todo.dueDate;
     todoPriority.textContent = todo.priority;
     description.textContent = todo.description;
     completedStatus.textContent = todo.completed;
+    editButton.textContent = "Edit";
 
     detailsContainer.appendChild(description);
     detailsContainer.appendChild(completedStatus);
+    detailsContainer.appendChild(editButton);
 
     detailsContainer.style.display = "none";
 
@@ -37,6 +40,10 @@ const renderTodoList = () => {
         detailsContainer.style.display = "none";
       }
     });
+
+    editButton.addEventListener("click", () => {
+  console.log("Edit clicked:", todo);
+   });
 
     todoContainer.appendChild(card);
   });
