@@ -41,10 +41,39 @@ const renderTodoList = () => {
       }
     });
 
-    editButton.addEventListener("click", () => {
-  console.log("Edit clicked:", todo);
-   });
+    editButton.addEventListener("click", (e) => {
+      e.stopPropagation();
 
+      console.log("Edit clicked:", todo);
+
+      const editForm = document.createElement("form");
+
+      const titleInput = document.createElement("input");
+      const descriptionInput = document.createElement("textarea");
+      const dateInput = document.createElement("input");
+      const priorityInput = document.createElement("input");
+      const saveButton = document.createElement("button");
+
+      titleInput.type = "text";
+      titleInput.value = todo.title;
+      descriptionInput.value = todo.description;
+      dateInput.type = "date";
+      dateInput.value = todo.dueDate;
+      priorityInput.type = "text";
+      priorityInput.value = todo.priority;
+
+      saveButton.textContent = "Save Changes";
+      saveButton.type = "button";
+
+      editForm.appendChild(titleInput);
+      editForm.appendChild(descriptionInput);
+      editForm.appendChild(dateInput);
+      editForm.appendChild(priorityInput);
+      editForm.appendChild(saveButton);
+
+      detailsContainer.innerHTML = "";
+      detailsContainer.appendChild(editForm);
+    });
     todoContainer.appendChild(card);
   });
 };
