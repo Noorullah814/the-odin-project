@@ -51,24 +51,49 @@ const renderTodoList = () => {
       const titleInput = document.createElement("input");
       const descriptionInput = document.createElement("textarea");
       const dateInput = document.createElement("input");
-      const priorityInput = document.createElement("input");
       const saveButton = document.createElement("button");
+      const prioritySelect = document.createElement("select");
+      const priorities = ["low", "medium", "high"];
+
+      priorities.forEach((level) => {
+        const option = document.createElement("option");
+        option.value = level;
+        option.textContent = level;
+        prioritySelect.appendChild(option);
+      });
 
       titleInput.type = "text";
       titleInput.value = todo.title;
       descriptionInput.value = todo.description;
       dateInput.type = "date";
       dateInput.value = todo.dueDate;
-      priorityInput.type = "text";
-      priorityInput.value = todo.priority;
+      prioritySelect.value = todo.priority;
 
+      saveButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (titleInput.value.trim() === "") {
+          alert("Title cannot be empty");
+          return;
+        }
+
+        const updatedData = {
+          title: titleInput.value,
+          description: descriptionInput.value,
+          dueDate: dateInput.value,
+          priority: prioritySelect.value,
+        };
+
+        projectManager.updateTodo(todo, updatedData);
+
+        renderTodoList();
+      });
       saveButton.textContent = "Save Changes";
       saveButton.type = "button";
 
       editForm.appendChild(titleInput);
       editForm.appendChild(descriptionInput);
       editForm.appendChild(dateInput);
-      editForm.appendChild(priorityInput);
+      editForm.appendChild(prioritySelect);
       editForm.appendChild(saveButton);
 
       detailsContainer.innerHTML = "";
