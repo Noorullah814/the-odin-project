@@ -14,6 +14,7 @@ const renderTodoList = () => {
     const description = document.createElement("p");
     const completedStatus = document.createElement("p");
     const editButton = document.createElement("button");
+    const completeButton = document.createElement("button");
 
     todoTitle.textContent = todo.title;
     todoDueDate.textContent = todo.dueDate;
@@ -21,10 +22,14 @@ const renderTodoList = () => {
     description.textContent = todo.description;
     completedStatus.textContent = todo.completed;
     editButton.textContent = "Edit";
+    completeButton.textContent = todo.completed
+      ? "Mark Incomplete"
+      : "Mark Complete";
 
     detailsContainer.appendChild(description);
     detailsContainer.appendChild(completedStatus);
     detailsContainer.appendChild(editButton);
+    detailsContainer.appendChild(completeButton);
 
     detailsContainer.style.display = "none";
 
@@ -39,6 +44,12 @@ const renderTodoList = () => {
       } else {
         detailsContainer.style.display = "none";
       }
+    });
+
+    completeButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      projectManager.toggleTodo(todo);
+      renderTodoList();
     });
 
     editButton.addEventListener("click", (e) => {
