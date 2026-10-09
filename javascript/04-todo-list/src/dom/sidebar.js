@@ -1,4 +1,5 @@
 import projectManager from "../projectManager.js";
+import createProject from "../project.js";
 
 const renderSidebar = () => {
   const projectContainer = document.querySelector("#projects-container");
@@ -12,4 +13,22 @@ const renderSidebar = () => {
   });
 };
 
-export default renderSidebar;
+const setupSidebar = () => {
+  const addProjectButton = document.querySelector("#add-project-button");
+  
+  addProjectButton.addEventListener("click", () => {
+
+    const projectName = prompt("Enter new project name:");
+    
+    if (projectName && projectName.trim() !== "") {
+   
+      const newProject = createProject(projectName.trim());
+   
+      projectManager.addProject(newProject);
+     
+      renderSidebar(); 
+    }
+  });
+};
+
+export { renderSidebar, setupSidebar };

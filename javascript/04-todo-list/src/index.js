@@ -2,7 +2,7 @@ import createTodo from "./todo.js";
 import createProject from "./project.js";
 import projectManager from "./projectManager.js";
 import "./style.css";
-import renderSidebar from "./dom/sidebar.js";
+import { renderSidebar, setupSidebar } from "./dom/sidebar.js";
 import renderTodoList from "./dom/todoList.js"
 
 const todo = createTodo(
@@ -15,6 +15,8 @@ const todo = createTodo(
 const currentProject = projectManager.getCurrentProject();
 
 currentProject.todos.push(todo);
+
+setupSidebar();
 
 renderSidebar();
 renderTodoList();
