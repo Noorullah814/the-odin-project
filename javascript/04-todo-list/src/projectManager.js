@@ -20,6 +20,10 @@ const projectManager = (() => {
     return currentProject;
   }
 
+  function setCurrentProject(project) {
+  currentProject = project;
+}
+
   function addTodo(todo)
   {
     currentProject.todos.push(todo);
@@ -46,7 +50,8 @@ function updateTodo(todo, updatedData){
     addTodo,
     toggleTodo,
     deleteTodo,
-    updateTodo
+    updateTodo,
+    setCurrentProject
   };
 })();
 
