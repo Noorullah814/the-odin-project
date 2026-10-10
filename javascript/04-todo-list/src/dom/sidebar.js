@@ -3,6 +3,10 @@ import createProject from "../project.js";
 import renderTodoList from "./todoList.js";
 
 const renderSidebar = () => {
+  const projectTitle = document.querySelector("#project-title");
+  const currentActiveProject = projectManager.getCurrentProject();
+  projectTitle.textContent = currentActiveProject.name;
+
   const projectContainer = document.querySelector("#projects-container");
   projectContainer.textContent = "";
 
