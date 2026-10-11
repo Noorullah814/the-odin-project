@@ -1,4 +1,5 @@
 import projectManager from "../projectManager.js";
+import createTodo from "../todo.js";
 
 const renderTodoList = () => {
   const todoContainer = document.querySelector("#todo-container");
@@ -113,5 +114,48 @@ const renderTodoList = () => {
     todoContainer.appendChild(card);
   });
 };
+const setupAddTodo = () => {
+  const addTodoButton = document.querySelector("#add-todo-button");
+  addTodoButton.addEventListener("click", () => {
+    if (document.querySelector("#add-todo-form")) {
+      return;
+    }
 
-export default renderTodoList;
+    const form = document.createElement("form");
+    form.id = "add-todo-form";
+
+    const titleInput = document.createElement("input");
+    titleInput.type = "text";
+    titleInput.placeholder = "Task Title ..";
+
+    const descriptionInput = document.createElement("textarea");
+    descriptionInput.placeholder = "Description";
+
+    const dateInput = document.createElement("input");
+    dateInput.type = "date";
+
+    const prioritySelect = document.createElement("select");
+    const priorities = ["low", "medium", "high"];
+    priorities.forEach((level) => {
+      const option = document.createElement("option");
+      option.value = level;
+      option.textContent = level;
+      prioritySelect.appendChild(option);
+    });
+
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Add Todo";
+    saveButton.type = "button";
+
+    form.appendChild(titleInput);
+    form.appendChild(descriptionInput);
+    form.appendChild(dateInput);
+    form.appendChild(prioritySelect);
+    form.appendChild(saveButton);
+
+    const todoContainer = document.querySelector("#todo-container");
+    todoContainer.parentNode.insertBefore(form, todoContainer);
+  });
+};
+
+export { renderTodoList, setupAddTodo };

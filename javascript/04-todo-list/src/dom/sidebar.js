@@ -1,6 +1,6 @@
 import projectManager from "../projectManager.js";
 import createProject from "../project.js";
-import renderTodoList from "./todoList.js";
+import { renderTodoList } from "./todoList.js";
 
 const renderSidebar = () => {
   const projectTitle = document.querySelector("#project-title");
