@@ -147,6 +147,26 @@ const setupAddTodo = () => {
     saveButton.textContent = "Add Todo";
     saveButton.type = "button";
 
+    saveButton.addEventListener("click", () => {
+      if (titleInput.value.trim() === "") {
+        alert("Title cannot be empty");
+        return;
+      }
+
+      const newTodo = createTodo(
+        titleInput.value,
+        descriptionInput.value,
+        dateInput.value,
+        prioritySelect.value,
+      );
+
+      projectManager.addTodo(newTodo);
+
+      renderTodoList();
+
+      form.remove();
+    });
+
     form.appendChild(titleInput);
     form.appendChild(descriptionInput);
     form.appendChild(dateInput);
