@@ -36,6 +36,7 @@ const projectManager = (() => {
 
   function addTodo(todo) {
     currentProject.todos.push(todo);
+    saveCurrentProjects();
   }
 
   function toggleTodo(todo) {
