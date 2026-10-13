@@ -10,6 +10,10 @@ const projectManager = (() => {
     projects.push(project);
   }
 
+  function saveCurrentProjects() {
+    saveProjects(projects);
+  }
+
   if (projects.length === 0) {
     const defaultProject = createProject("Default");
     addProject(defaultProject);
