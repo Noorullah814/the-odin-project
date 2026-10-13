@@ -8,6 +8,7 @@ const projectManager = (() => {
 
   function addProject(project) {
     projects.push(project);
+    saveCurrentProjects();
   }
 
   function saveCurrentProjects() {
