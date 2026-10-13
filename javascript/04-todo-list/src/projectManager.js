@@ -41,16 +41,19 @@ const projectManager = (() => {
 
   function toggleTodo(todo) {
     todo.completed = !todo.completed;
+    saveCurrentProjects();
   }
 
-  function deleteTodo(todo) {
+function deleteTodo(todo) {
     currentProject.todos = currentProject.todos.filter(
-      (currentTodo) => currentTodo !== todo,
+      (currentTodo) => currentTodo !== todo
     );
+    saveCurrentProjects();
   }
 
-  function updateTodo(todo, updatedData) {
+ function updateTodo(todo, updatedData) {
     Object.assign(todo, updatedData);
+    saveCurrentProjects();
   }
 
   return {
