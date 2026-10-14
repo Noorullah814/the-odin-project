@@ -16,6 +16,7 @@ const renderTodoList = () => {
     const completedStatus = document.createElement("p");
     const editButton = document.createElement("button");
     const completeButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
 
     todoTitle.textContent = todo.title;
     todoDueDate.textContent = todo.dueDate;
@@ -27,10 +28,18 @@ const renderTodoList = () => {
       ? "Mark Incomplete"
       : "Mark Complete";
 
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent the card from toggling its display
+      projectManager.deleteTodo(todo);
+      renderTodoList();
+    });
+
     detailsContainer.appendChild(description);
     detailsContainer.appendChild(completedStatus);
     detailsContainer.appendChild(editButton);
     detailsContainer.appendChild(completeButton);
+    detailsContainer.appendChild(deleteButton);
 
     detailsContainer.style.display = "none";
 
