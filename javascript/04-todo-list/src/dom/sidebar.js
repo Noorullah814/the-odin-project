@@ -45,7 +45,11 @@ const setupSidebar = () => {
 
       const newProject = createProject(trimmedName);
       projectManager.addProject(newProject);
+      
+      projectManager.setCurrentProject(newProject);
+      
       renderSidebar();
+      renderTodoList();
     }
   });
 };
