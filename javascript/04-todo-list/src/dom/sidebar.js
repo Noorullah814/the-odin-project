@@ -30,10 +30,21 @@ const setupSidebar = () => {
     const projectName = prompt("Enter new project name:");
 
     if (projectName && projectName.trim() !== "") {
-      const newProject = createProject(projectName.trim());
+      const trimmedName = projectName.trim();
+      const normalizedName = trimmedName.toLowerCase();
 
+      const existingProjects = projectManager.getProjects();
+      const isDuplicate = existingProjects.some(
+        (project) => project.name.toLowerCase() === normalizedName,
+      );
+
+      if (isDuplicate) {
+        alert("A project with that name already exists!");
+        return;
+      }
+
+      const newProject = createProject(trimmedName);
       projectManager.addProject(newProject);
-
       renderSidebar();
     }
   });
