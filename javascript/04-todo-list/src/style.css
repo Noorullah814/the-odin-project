@@ -164,3 +164,121 @@ button:disabled {
   min-width: 0;
   padding: var(--content-padding);
 }
+
+
+/* ========================================
+   4. Sidebar and Main Workspace
+======================================== */
+
+/* Sidebar */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  background: var(--color-sidebar);
+  color: var(--color-text-inverse);
+  border-right: none;
+  padding: var(--space-6) var(--space-4);
+}
+
+/* Project heading */
+#project-title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Projects list */
+#projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Individual project items */
+#projects-container > div {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  color: #cbd5e1;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+#projects-container > div:hover {
+  background: var(--color-sidebar-hover);
+  color: #ffffff;
+}
+
+/* Sidebar action button */
+#add-project-button {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #334155;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: #e2e8f0;
+  text-align: left;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+#add-project-button:hover {
+  background: var(--color-sidebar-hover);
+  border-color: #475569;
+}
+
+/* Main workspace */
+#main-content {
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--color-background);
+}
+
+/* Main action button */
+#add-todo-button {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: var(--shadow-subtle);
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+#add-todo-button:hover {
+  background: var(--color-primary-hover);
+}
+
+#add-todo-button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive layout */
+@media (max-width: 640px) {
+  #app {
+    flex-direction: column;
+  }
+
+  #sidebar {
+    width: 100%;
+    padding: var(--space-4);
+    gap: var(--space-4);
+  }
+
+  #projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  #main-content {
+    padding: var(--space-4);
+  }
+}
