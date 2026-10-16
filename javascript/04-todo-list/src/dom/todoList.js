@@ -74,13 +74,23 @@ const renderTodoList = () => {
       console.log("Edit clicked:", todo);
 
       const editForm = document.createElement("form");
+      editForm.classList.add("todo-form");
 
       const titleInput = document.createElement("input");
+      titleInput.classList.add("form-input");
+
       const descriptionInput = document.createElement("textarea");
+      descriptionInput.classList.add("form-input");
+
       const dateInput = document.createElement("input");
+      dateInput.classList.add("form-input");
+
       const saveButton = document.createElement("button");
+      saveButton.classList.add("form-button", "form-button-primary");
+      
       const prioritySelect = document.createElement("select");
       const priorities = ["low", "medium", "high"];
+      prioritySelect.classList.add("form-input");
 
       priorities.forEach((level) => {
         const option = document.createElement("option");
@@ -102,6 +112,7 @@ const renderTodoList = () => {
           alert("Title cannot be empty");
           return;
         }
+        
 
         const updatedData = {
           title: titleInput.value,
@@ -138,16 +149,20 @@ const setupAddTodo = () => {
 
     const form = document.createElement("form");
     form.id = "add-todo-form";
+    form.classList.add("todo-form");
 
     const titleInput = document.createElement("input");
     titleInput.type = "text";
     titleInput.placeholder = "Task Title ..";
+    titleInput.classList.add("form-input");
 
     const descriptionInput = document.createElement("textarea");
     descriptionInput.placeholder = "Description";
+    descriptionInput.classList.add("form-input");
 
     const dateInput = document.createElement("input");
     dateInput.type = "date";
+    dateInput.classList.add("form-input");
 
     const prioritySelect = document.createElement("select");
     const priorities = ["low", "medium", "high"];
@@ -157,6 +172,7 @@ const setupAddTodo = () => {
       option.textContent = level;
       prioritySelect.appendChild(option);
     });
+    prioritySelect.classList.add("form-input");
 
     const saveButton = document.createElement("button");
     saveButton.textContent = "Add Todo";
@@ -167,8 +183,9 @@ const setupAddTodo = () => {
         alert("Title cannot be empty");
         return;
       }
+    saveButton.classList.add("form-button", "form-button-primary");
 
-      const newTodo = createTodo(
+    const newTodo = createTodo(
         titleInput.value,
         descriptionInput.value,
         dateInput.value,
