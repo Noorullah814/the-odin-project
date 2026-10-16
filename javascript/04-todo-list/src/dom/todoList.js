@@ -12,6 +12,13 @@ const renderTodoList = () => {
     const todoDueDate = document.createElement("p");
     const todoPriority = document.createElement("p");
     const detailsContainer = document.createElement("div");
+
+    card.classList.add("todo-card");
+    todoTitle.classList.add("todo-title");
+    todoDueDate.classList.add("todo-due-date");
+    todoPriority.classList.add("todo-priority");
+    detailsContainer.classList.add("todo-details");
+
     const description = document.createElement("p");
     const completedStatus = document.createElement("p");
     const editButton = document.createElement("button");
@@ -20,7 +27,10 @@ const renderTodoList = () => {
 
     todoTitle.textContent = todo.title;
     todoDueDate.textContent = todo.dueDate;
+
     todoPriority.textContent = todo.priority;
+    todoPriority.classList.add(`priority-${todo.priority.toLowerCase()}`);
+
     description.textContent = todo.description;
     completedStatus.textContent = todo.completed;
     editButton.textContent = "Edit";
@@ -41,7 +51,7 @@ const renderTodoList = () => {
     detailsContainer.appendChild(completeButton);
     detailsContainer.appendChild(deleteButton);
 
-    detailsContainer.style.display = "none";
+    detailsContainer.classList.add("todo-details-hidden");
 
     card.appendChild(todoTitle);
     card.appendChild(todoDueDate);
@@ -49,11 +59,7 @@ const renderTodoList = () => {
     card.appendChild(detailsContainer);
 
     card.addEventListener("click", () => {
-      if (detailsContainer.style.display === "none") {
-        detailsContainer.style.display = "block";
-      } else {
-        detailsContainer.style.display = "none";
-      }
+      detailsContainer.classList.toggle("todo-details-hidden");
     });
 
     completeButton.addEventListener("click", (e) => {
