@@ -26,6 +26,10 @@ const renderTodoList = () => {
     const deleteButton = document.createElement("button");
 
     todoTitle.textContent = todo.title;
+    if (todo.completed) {
+      card.classList.add("todo-completed");
+    }
+
     todoDueDate.textContent = todo.dueDate;
 
     todoPriority.textContent = todo.priority;
@@ -58,7 +62,11 @@ const renderTodoList = () => {
     card.appendChild(todoPriority);
     card.appendChild(detailsContainer);
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (event) => {
+      if (detailsContainer.contains(event.target)) {
+        return;
+      }
+
       detailsContainer.classList.toggle("todo-details-hidden");
     });
 
@@ -87,7 +95,7 @@ const renderTodoList = () => {
 
       const saveButton = document.createElement("button");
       saveButton.classList.add("form-button", "form-button-primary");
-      
+
       const prioritySelect = document.createElement("select");
       const priorities = ["low", "medium", "high"];
       prioritySelect.classList.add("form-input");
@@ -112,7 +120,6 @@ const renderTodoList = () => {
           alert("Title cannot be empty");
           return;
         }
-        
 
         const updatedData = {
           title: titleInput.value,
@@ -183,9 +190,9 @@ const setupAddTodo = () => {
         alert("Title cannot be empty");
         return;
       }
-    saveButton.classList.add("form-button", "form-button-primary");
+      saveButton.classList.add("form-button", "form-button-primary");
 
-    const newTodo = createTodo(
+      const newTodo = createTodo(
         titleInput.value,
         descriptionInput.value,
         dateInput.value,

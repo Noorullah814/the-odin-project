@@ -1,4 +1,3 @@
-
 /* ========================================
    1. Taskflow Design System
 ======================================== */
@@ -69,8 +68,7 @@
   --radius-full: 9999px;
 
   --shadow-subtle:
-    0 1px 3px rgba(15, 23, 42, 0.06),
-    0 1px 2px rgba(15, 23, 42, 0.04);
+    0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
 
   /* Motion */
   --transition-fast: 150ms ease;
@@ -164,7 +162,6 @@ button:disabled {
   min-width: 0;
   padding: var(--content-padding);
 }
-
 
 /* ========================================
    4. Sidebar and Main Workspace
@@ -477,5 +474,76 @@ textarea.form-input {
 
   .form-button {
     width: 100%;
+  }
+}
+
+/* ========================================
+   7. Final UI Refinements
+======================================== */
+
+/* Completed tasks */
+.todo-card.todo-completed {
+  background: #f8fafc;
+  border-color: #d1fae5;
+}
+
+.todo-completed .todo-title {
+  color: var(--color-text-secondary);
+  text-decoration: line-through;
+  text-decoration-color: #94a3b8;
+}
+
+/* Consistent layout for long content */
+.todo-card,
+.todo-form {
+  overflow-wrap: anywhere;
+}
+
+.todo-card h3 {
+  line-height: 1.45;
+}
+
+.todo-details {
+  overflow-wrap: anywhere;
+}
+
+/* Clear keyboard focus for interactive cards */
+.todo-card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Responsive refinements */
+@media (max-width: 640px) {
+  #sidebar {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  #project-title {
+    font-size: var(--text-lg);
+  }
+
+  .todo-card {
+    padding: var(--space-4);
+  }
+
+  .todo-title {
+    font-size: 1rem;
+  }
+
+  .todo-details button {
+    margin-right: var(--space-1);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
