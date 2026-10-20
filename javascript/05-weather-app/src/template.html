@@ -10,10 +10,63 @@
     />
     <title>Weather App</title>
   </head>
+
   <body>
-    <div id="content">
-      <h1>Weather App</h1>
-      <p>Your weather dashboard is coming soon.</p>
-    </div>
+    <main class="weather-app">
+      <header class="app-header">
+        <h1>Weather</h1>
+        <p>Explore the weather anywhere in the world.</p>
+      </header>
+
+      <form id="search-form">
+        <label for="location-input">Search location</label>
+
+        <div class="search-controls">
+          <input
+            type="text"
+            id="location-input"
+            placeholder="Enter a city, e.g. Islamabad"
+            required
+          />
+          <button type="submit">Search</button>
+        </div>
+      </form>
+
+      <p id="status-message" role="status" aria-live="polite">
+        Search for a location to see its weather.
+      </p>
+
+      <section id="weather-container" aria-live="polite">
+        <div class="current-weather">
+          <h2 id="location-name">Location</h2>
+          <p id="conditions">Weather conditions will appear here.</p>
+          <p id="temperature">--°</p>
+          <p id="feels-like">Feels like --°</p>
+        </div>
+
+        <div class="weather-details">
+          <div>
+            <h3>Humidity</h3>
+            <p id="humidity">--%</p>
+          </div>
+
+          <div>
+            <h3>Wind</h3>
+            <p id="wind-speed">--</p>
+          </div>
+        </div>
+
+        <div class="forecast-section">
+          <h2>Upcoming Forecast</h2>
+          <div id="forecast-container">
+            <p>Forecast information will appear here.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <p>Weather information for your next adventure.</p>
+      </footer>
+    </main>
   </body>
 </html>

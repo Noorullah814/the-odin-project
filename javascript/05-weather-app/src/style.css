@@ -5,13 +5,134 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: Arial, sans-serif;
-  background-color: #f3f6fb;
+  background: #eef2ff;
   color: #172033;
 }
 
-#content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
+.weather-app {
+  width: min(900px, 92%);
+  margin: 40px auto;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgb(23 32 51 / 10%);
+}
+
+.app-header {
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  margin-bottom: 8px;
+  font-size: 2.2rem;
+}
+
+.app-header p,
+#status-message {
+  color: #64748b;
+}
+
+#search-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.search-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.search-controls input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+#status-message {
+  margin: 24px 0;
+}
+
+.current-weather {
+  padding: 24px;
+  border-radius: 14px;
+  background: #f1f5f9;
+}
+
+#location-name {
+  margin-top: 0;
+}
+
+#temperature {
+  margin: 16px 0;
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.weather-details > div {
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.weather-details h3 {
+  margin-top: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.forecast-section {
+  margin-top: 30px;
+}
+
+#forecast-container {
+  color: #64748b;
+}
+
+.app-footer {
+  margin-top: 32px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 500px) {
+  .weather-app {
+    margin: 16px auto;
+    padding: 18px;
+  }
+
+  .search-controls {
+    flex-direction: column;
+  }
+
+  .search-controls button {
+    width: 100%;
+  }
 }
