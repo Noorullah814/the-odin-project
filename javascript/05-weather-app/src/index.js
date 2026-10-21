@@ -31,7 +31,22 @@ document.querySelector("#humidity").textContent =
 
 document.querySelector("#wind-speed").textContent =
   `${currentWeather.windSpeed} km/h`;
-  
+
+  const searchForm = document.querySelector("#search-form");
+const locationInput = document.querySelector("#location-input");
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const location = locationInput.value.trim();
+
+  if (!location) {
+    return;
+  }
+
+  console.log("Searching for:", location);
+});
+
   })
   .catch((error) => {
     console.error(error);
