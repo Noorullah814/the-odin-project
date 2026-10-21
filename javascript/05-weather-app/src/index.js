@@ -13,6 +13,25 @@ getWeatherData("Islamabad")
 };
 
 console.log(currentWeather);
+
+document.querySelector("#location-name").textContent =
+  currentWeather.location;
+
+document.querySelector("#conditions").textContent =
+  currentWeather.conditions;
+
+document.querySelector("#temperature").textContent =
+  `${currentWeather.temperature}°C`;
+
+document.querySelector("#feels-like").textContent =
+  `Feels like ${currentWeather.feelsLike}°C`;
+
+document.querySelector("#humidity").textContent =
+  `${currentWeather.humidity}%`;
+
+document.querySelector("#wind-speed").textContent =
+  `${currentWeather.windSpeed} km/h`;
+  
   })
   .catch((error) => {
     console.error(error);
