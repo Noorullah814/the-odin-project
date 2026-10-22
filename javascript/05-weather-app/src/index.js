@@ -5,16 +5,34 @@ function convertToFahrenheit(celsius) {
   return (celsius * 9) / 5 + 32;
 }
 
+let currentUnit = "C";
+
 function displayCurrentWeather(weather) {
   const temperatureCelsius = weather.temperature;
   const feelsLikeCelsius = weather.feelsLike;
 
+  const isFahrenheit = currentUnit === "F";
+
+  const temperature = isFahrenheit
+    ? convertToFahrenheit(temperatureCelsius)
+    : temperatureCelsius;
+
+  const feelsLike = isFahrenheit
+    ? convertToFahrenheit(feelsLikeCelsius)
+    : feelsLikeCelsius;
+
+  const unit = isFahrenheit ? "°F" : "°C";
+
   document.querySelector("#location-name").textContent = weather.location;
   document.querySelector("#conditions").textContent = weather.conditions;
-  document.querySelector("#temperature").textContent = `${weather.temperature}°C`;
-  document.querySelector("#feels-like").textContent = `Feels like ${weather.feelsLike}°C`;
+  document.querySelector("#temperature").textContent =
+    `${temperature.toFixed(1)}${unit}`;
+
+  document.querySelector("#feels-like").textContent =
+    `Feels like ${feelsLike.toFixed(1)}${unit}`;
   document.querySelector("#humidity").textContent = `${weather.humidity}%`;
-  document.querySelector("#wind-speed").textContent = `${weather.windSpeed} km/h`;
+  document.querySelector("#wind-speed").textContent =
+    `${weather.windSpeed} km/h`;
 }
 
 // 1. Create the forecast display function
@@ -26,7 +44,7 @@ function displayForecast(days) {
   const forecastCards = days.map((day) => {
     // 1. Create a safe date object set to noon
     const forecastDate = new Date(`${day.datetime}T12:00:00`);
-    
+
     // 2. Format the date into a readable string
     const formattedDate = forecastDate.toLocaleDateString("en-US", {
       weekday: "short",
@@ -64,7 +82,7 @@ searchForm.addEventListener("submit", (event) => {
   const searchButton = searchForm.querySelector('button[type="submit"]');
 
   statusMessage.textContent = `Loading weather for ${location}...`;
-  
+
   // 2. Disable the button before fetching
   searchButton.disabled = true;
   searchButton.textContent = "Loading...";
@@ -84,15 +102,16 @@ searchForm.addEventListener("submit", (event) => {
       displayForecast(data.days);
 
       statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
-      
+
       // 3. Re-enable the button on success
       searchButton.disabled = false;
       searchButton.textContent = "Search";
     })
     .catch((error) => {
       console.error(error);
-      statusMessage.textContent = "Unable to load weather. Check the city name or try again.";
-      
+      statusMessage.textContent =
+        "Unable to load weather. Check the city name or try again.";
+
       // 4. Re-enable the button on failure
       searchButton.disabled = false;
       searchButton.textContent = "Search";
