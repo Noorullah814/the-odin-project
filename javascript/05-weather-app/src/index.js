@@ -16,11 +16,21 @@ function displayForecast(days) {
 
   forecastContainer.textContent = "";
 
-  // Transform the array of objects into an array of HTML strings
   const forecastCards = days.map((day) => {
+    // 1. Create a safe date object set to noon
+    const forecastDate = new Date(`${day.datetime}T12:00:00`);
+    
+    // 2. Format the date into a readable string
+    const formattedDate = forecastDate.toLocaleDateString("en-US", {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+    });
+
+    // 3. Inject the formattedDate instead of day.datetime
     return `
       <div class="forecast-card">
-        <p>${day.datetime}</p>
+        <p>${formattedDate}</p>
         <p>${day.conditions}</p>
         <p>Max: ${day.tempmax}°C</p>
         <p>Min: ${day.tempmin}°C</p>
@@ -30,7 +40,6 @@ function displayForecast(days) {
 
   forecastContainer.innerHTML = forecastCards.join("");
 }
-
 const searchForm = document.querySelector("#search-form");
 const locationInput = document.querySelector("#location-input");
 const statusMessage = document.querySelector("#status-message");
