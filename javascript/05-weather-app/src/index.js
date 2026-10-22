@@ -1,7 +1,6 @@
 import "./style.css";
 import { getWeatherData } from "./weather.js";
 
-// 1. Separate UI update logic into its own function
 function displayCurrentWeather(weather) {
   document.querySelector("#location-name").textContent = weather.location;
   document.querySelector("#conditions").textContent = weather.conditions;
@@ -9,6 +8,15 @@ function displayCurrentWeather(weather) {
   document.querySelector("#feels-like").textContent = `Feels like ${weather.feelsLike}°C`;
   document.querySelector("#humidity").textContent = `${weather.humidity}%`;
   document.querySelector("#wind-speed").textContent = `${weather.windSpeed} km/h`;
+}
+
+// 1. Create the forecast display function
+function displayForecast(days) {
+  const forecastContainer = document.querySelector("#forecast-container");
+
+  forecastContainer.textContent = "";
+
+  console.log("Forecast array in displayForecast:", days);
 }
 
 const searchForm = document.querySelector("#search-form");
@@ -37,8 +45,10 @@ searchForm.addEventListener("submit", (event) => {
         windSpeed: data.currentConditions.windspeed,
       };
 
-      // 2. Pass the formatted data object to the UI function
       displayCurrentWeather(currentWeather);
+      
+      // 2. Pass the array of days to your new function
+      displayForecast(data.days);
 
       statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
     })
