@@ -53,7 +53,14 @@ searchForm.addEventListener("submit", (event) => {
     return;
   }
 
+  // 1. Select the search button
+  const searchButton = searchForm.querySelector('button[type="submit"]');
+
   statusMessage.textContent = `Loading weather for ${location}...`;
+  
+  // 2. Disable the button before fetching
+  searchButton.disabled = true;
+  searchButton.textContent = "Loading...";
 
   getWeatherData(location)
     .then((data) => {
@@ -67,14 +74,20 @@ searchForm.addEventListener("submit", (event) => {
       };
 
       displayCurrentWeather(currentWeather);
-      
-      // 2. Pass the array of days to your new function
       displayForecast(data.days);
 
       statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
+      
+      // 3. Re-enable the button on success
+      searchButton.disabled = false;
+      searchButton.textContent = "Search";
     })
     .catch((error) => {
       console.error(error);
       statusMessage.textContent = "Unable to load weather. Check the city name or try again.";
+      
+      // 4. Re-enable the button on failure
+      searchButton.disabled = false;
+      searchButton.textContent = "Search";
     });
 });

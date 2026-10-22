@@ -152,6 +152,11 @@ button:hover {
   font-weight: 600;
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .app-footer {
   margin-top: 32px;
   text-align: center;
