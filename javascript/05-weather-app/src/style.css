@@ -112,7 +112,44 @@ button:hover {
 }
 
 #forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.forecast-card {
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #ffffff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.forecast-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgb(23 32 51 / 8%);
+}
+
+.forecast-card p {
+  margin: 8px 0;
+}
+
+.forecast-card p:first-child {
+  color: #172033;
+  font-weight: 700;
+}
+
+.forecast-card p:nth-child(2) {
   color: #64748b;
+  font-size: 0.9rem;
+}
+
+.forecast-card p:nth-child(3),
+.forecast-card p:nth-child(4) {
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .app-footer {
