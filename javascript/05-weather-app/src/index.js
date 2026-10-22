@@ -16,7 +16,19 @@ function displayForecast(days) {
 
   forecastContainer.textContent = "";
 
-  console.log("Forecast array in displayForecast:", days);
+  // Transform the array of objects into an array of HTML strings
+  const forecastCards = days.map((day) => {
+    return `
+      <div class="forecast-card">
+        <p>${day.datetime}</p>
+        <p>${day.conditions}</p>
+        <p>Max: ${day.tempmax}°C</p>
+        <p>Min: ${day.tempmin}°C</p>
+      </div>
+    `;
+  });
+
+  console.log(forecastCards);
 }
 
 const searchForm = document.querySelector("#search-form");
