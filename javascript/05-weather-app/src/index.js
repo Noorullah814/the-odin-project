@@ -28,7 +28,7 @@ function displayForecast(days) {
     `;
   });
 
-  console.log(forecastCards);
+  forecastContainer.innerHTML = forecastCards.join("");
 }
 
 const searchForm = document.querySelector("#search-form");
