@@ -1,7 +1,14 @@
 import "./style.css";
 import { getWeatherData } from "./weather.js";
 
+function convertToFahrenheit(celsius) {
+  return (celsius * 9) / 5 + 32;
+}
+
 function displayCurrentWeather(weather) {
+  const temperatureCelsius = weather.temperature;
+  const feelsLikeCelsius = weather.feelsLike;
+
   document.querySelector("#location-name").textContent = weather.location;
   document.querySelector("#conditions").textContent = weather.conditions;
   document.querySelector("#temperature").textContent = `${weather.temperature}°C`;
