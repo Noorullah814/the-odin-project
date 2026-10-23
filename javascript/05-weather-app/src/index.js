@@ -7,6 +7,7 @@ function convertToFahrenheit(celsius) {
 
 let currentUnit = "C";
 let latestWeather = null;
+let latestForecast = [];
 
 function displayCurrentWeather(weather) {
   const temperatureCelsius = weather.temperature;
@@ -43,23 +44,33 @@ function displayForecast(days) {
   forecastContainer.textContent = "";
 
   const forecastCards = days.map((day) => {
-    // 1. Create a safe date object set to noon
     const forecastDate = new Date(`${day.datetime}T12:00:00`);
-
-    // 2. Format the date into a readable string
     const formattedDate = forecastDate.toLocaleDateString("en-US", {
       weekday: "short",
       month: "short",
       day: "numeric",
     });
 
-    // 3. Inject the formattedDate instead of day.datetime
+    // 1. Check state and convert if necessary
+    const isFahrenheit = currentUnit === "F";
+
+    const maxTemperature = isFahrenheit
+      ? convertToFahrenheit(day.tempmax)
+      : day.tempmax;
+
+    const minTemperature = isFahrenheit
+      ? convertToFahrenheit(day.tempmin)
+      : day.tempmin;
+
+    const unit = isFahrenheit ? "°F" : "°C";
+
+    // 2. Update the template to use the new variables and format them to 1 decimal place
     return `
       <div class="forecast-card">
         <p>${formattedDate}</p>
         <p>${day.conditions}</p>
-        <p>Max: ${day.tempmax}°C</p>
-        <p>Min: ${day.tempmin}°C</p>
+        <p>Max: ${maxTemperature.toFixed(1)}${unit}</p>
+        <p>Min: ${minTemperature.toFixed(1)}${unit}</p>
       </div>
     `;
   });
@@ -78,14 +89,16 @@ celsiusButton.addEventListener("click", () => {
 
   if (latestWeather) {
     displayCurrentWeather(latestWeather);
+    displayForecast(latestForecast);
   }
 });
 
 fahrenheitButton.addEventListener("click", () => {
   currentUnit = "F";
 
-   if (latestWeather) {
+  if (latestWeather) {
     displayCurrentWeather(latestWeather);
+    displayForecast(latestForecast);
   }
 });
 
@@ -120,8 +133,9 @@ searchForm.addEventListener("submit", (event) => {
 
       latestWeather = currentWeather;
       displayCurrentWeather(currentWeather);
-      displayForecast(data.days);
-    
+      latestForecast = data.days;
+      displayForecast(latestForecast);
+
       statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
 
       // 3. Re-enable the button on success
