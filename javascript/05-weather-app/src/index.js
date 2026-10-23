@@ -6,6 +6,7 @@ function convertToFahrenheit(celsius) {
 }
 
 let currentUnit = "C";
+let latestWeather = null;
 
 function displayCurrentWeather(weather) {
   const temperatureCelsius = weather.temperature;
@@ -69,6 +70,25 @@ const searchForm = document.querySelector("#search-form");
 const locationInput = document.querySelector("#location-input");
 const statusMessage = document.querySelector("#status-message");
 
+const celsiusButton = document.querySelector("#celsius-btn");
+const fahrenheitButton = document.querySelector("#fahrenheit-btn");
+
+celsiusButton.addEventListener("click", () => {
+  currentUnit = "C";
+
+  if (latestWeather) {
+    displayCurrentWeather(latestWeather);
+  }
+});
+
+fahrenheitButton.addEventListener("click", () => {
+  currentUnit = "F";
+
+   if (latestWeather) {
+    displayCurrentWeather(latestWeather);
+  }
+});
+
 searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -98,9 +118,10 @@ searchForm.addEventListener("submit", (event) => {
         windSpeed: data.currentConditions.windspeed,
       };
 
+      latestWeather = currentWeather;
       displayCurrentWeather(currentWeather);
       displayForecast(data.days);
-
+    
       statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
 
       // 3. Re-enable the button on success
