@@ -102,7 +102,8 @@ fahrenheitButton.addEventListener("click", () => {
   }
 });
 
-searchForm.addEventListener("submit", (event) => {
+// 1. Make the callback async
+searchForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const location = locationInput.value.trim();
@@ -111,44 +112,43 @@ searchForm.addEventListener("submit", (event) => {
     return;
   }
 
-  // 1. Select the search button
   const searchButton = searchForm.querySelector('button[type="submit"]');
 
   statusMessage.textContent = `Loading weather for ${location}...`;
-
-  // 2. Disable the button before fetching
   searchButton.disabled = true;
   searchButton.textContent = "Loading...";
 
-  getWeatherData(location)
-    .then((data) => {
-      const currentWeather = {
-        location: data.resolvedAddress,
-        conditions: data.currentConditions.conditions,
-        temperature: data.currentConditions.temp,
-        feelsLike: data.currentConditions.feelslike,
-        humidity: data.currentConditions.humidity,
-        windSpeed: data.currentConditions.windspeed,
-      };
+  // 2. Replace .then/.catch with try/catch/finally
+  try {
+    const data = await getWeatherData(location);
 
-      latestWeather = currentWeather;
-      displayCurrentWeather(currentWeather);
-      latestForecast = data.days;
-      displayForecast(latestForecast);
+    // Validate the data to prevent silent errors
+    if (!data.currentConditions || !Array.isArray(data.days)) {
+      throw new Error("Weather response is missing required data.");
+    }
 
-      statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
+    const currentWeather = {
+      location: data.resolvedAddress,
+      conditions: data.currentConditions.conditions,
+      temperature: data.currentConditions.temp,
+      feelsLike: data.currentConditions.feelslike,
+      humidity: data.currentConditions.humidity,
+      windSpeed: data.currentConditions.windspeed,
+    };
 
-      // 3. Re-enable the button on success
-      searchButton.disabled = false;
-      searchButton.textContent = "Search";
-    })
-    .catch((error) => {
-      console.error(error);
-      statusMessage.textContent =
-        "Unable to load weather. Check the city name or try again.";
+    latestWeather = currentWeather;
+    latestForecast = data.days;
 
-      // 4. Re-enable the button on failure
-      searchButton.disabled = false;
-      searchButton.textContent = "Search";
-    });
+    displayCurrentWeather(latestWeather);
+    displayForecast(latestForecast);
+
+    statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
+  } catch (error) {
+    console.error(error);
+    statusMessage.textContent = "Unable to load weather. Check the city name or try again.";
+  } finally {
+    // 3. This runs no matter what, cleanly resetting your UI!
+    searchButton.disabled = false;
+    searchButton.textContent = "Search";
+  }
 });
