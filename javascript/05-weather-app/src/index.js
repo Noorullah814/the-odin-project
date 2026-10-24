@@ -122,8 +122,16 @@ searchForm.addEventListener("submit", async (event) => {
   try {
     const data = await getWeatherData(location);
 
-    // Validate the data to prevent silent errors
-    if (!data.currentConditions || !Array.isArray(data.days)) {
+    // Enhanced validation to ensure all required fields exist and are the correct type
+    if (
+      !data.resolvedAddress ||
+      !data.currentConditions ||
+      typeof data.currentConditions.temp !== "number" ||
+      typeof data.currentConditions.feelslike !== "number" ||
+      typeof data.currentConditions.humidity !== "number" ||
+      typeof data.currentConditions.windspeed !== "number" ||
+      !Array.isArray(data.days)
+    ) {
       throw new Error("Weather response is missing required data.");
     }
 
