@@ -37,13 +37,13 @@ function displayCurrentWeather(weather) {
     `${weather.windSpeed} km/h`;
 }
 
-// 1. Create the forecast display function
 function displayForecast(days) {
   const forecastContainer = document.querySelector("#forecast-container");
 
-  forecastContainer.textContent = "";
-
   const forecastCards = days.map((day) => {
+    const card = document.createElement("div");
+    card.classList.add("forecast-card");
+
     const forecastDate = new Date(`${day.datetime}T12:00:00`);
     const formattedDate = forecastDate.toLocaleDateString("en-US", {
       weekday: "short",
@@ -51,7 +51,18 @@ function displayForecast(days) {
       day: "numeric",
     });
 
-    // 1. Check state and convert if necessary
+    const conditionsElement = document.createElement("p");
+    conditionsElement.textContent = day.conditions;
+    card.appendChild(conditionsElement);
+
+    const maxTemperatureElement = document.createElement("p");
+    maxTemperatureElement.textContent = `Max: ${maxTemperature.toFixed(1)}${unit}`;
+    card.appendChild(maxTemperatureElement);
+
+    const minTemperatureElement = document.createElement("p");
+    minTemperatureElement.textContent = `Min: ${minTemperature.toFixed(1)}${unit}`;
+    card.appendChild(minTemperatureElement);
+
     const isFahrenheit = currentUnit === "F";
 
     const maxTemperature = isFahrenheit
@@ -64,18 +75,10 @@ function displayForecast(days) {
 
     const unit = isFahrenheit ? "°F" : "°C";
 
-    // 2. Update the template to use the new variables and format them to 1 decimal place
-    return `
-      <div class="forecast-card">
-        <p>${formattedDate}</p>
-        <p>${day.conditions}</p>
-        <p>Max: ${maxTemperature.toFixed(1)}${unit}</p>
-        <p>Min: ${minTemperature.toFixed(1)}${unit}</p>
-      </div>
-    `;
+    return card;
   });
 
-  forecastContainer.innerHTML = forecastCards.join("");
+  forecastContainer.replaceChildren(...forecastCards);
 }
 const searchForm = document.querySelector("#search-form");
 const locationInput = document.querySelector("#location-input");
@@ -102,7 +105,6 @@ fahrenheitButton.addEventListener("click", () => {
   }
 });
 
-// 1. Make the callback async
 searchForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -118,11 +120,9 @@ searchForm.addEventListener("submit", async (event) => {
   searchButton.disabled = true;
   searchButton.textContent = "Loading...";
 
-  // 2. Replace .then/.catch with try/catch/finally
   try {
     const data = await getWeatherData(location);
 
-    // Enhanced validation to ensure all required fields exist and are the correct type
     if (
       !data.resolvedAddress ||
       !data.currentConditions ||
@@ -153,9 +153,9 @@ searchForm.addEventListener("submit", async (event) => {
     statusMessage.textContent = `Weather loaded for ${currentWeather.location}.`;
   } catch (error) {
     console.error(error);
-    statusMessage.textContent = "Unable to load weather. Check the city name or try again.";
+    statusMessage.textContent =
+      "Unable to load weather. Check the city name or try again.";
   } finally {
-    // 3. This runs no matter what, cleanly resetting your UI!
     searchButton.disabled = false;
     searchButton.textContent = "Search";
   }
