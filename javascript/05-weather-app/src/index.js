@@ -51,6 +51,19 @@ function displayForecast(days) {
       day: "numeric",
     });
 
+    const isFahrenheit = currentUnit === "F";
+    const maxTemperature = isFahrenheit
+      ? convertToFahrenheit(day.tempmax)
+      : day.tempmax;
+    const minTemperature = isFahrenheit
+      ? convertToFahrenheit(day.tempmin)
+      : day.tempmin;
+    const unit = isFahrenheit ? "°F" : "°C";
+
+    const dateElement = document.createElement("p");
+    dateElement.textContent = formattedDate;
+    card.appendChild(dateElement);
+
     const conditionsElement = document.createElement("p");
     conditionsElement.textContent = day.conditions;
     card.appendChild(conditionsElement);
@@ -63,23 +76,12 @@ function displayForecast(days) {
     minTemperatureElement.textContent = `Min: ${minTemperature.toFixed(1)}${unit}`;
     card.appendChild(minTemperatureElement);
 
-    const isFahrenheit = currentUnit === "F";
-
-    const maxTemperature = isFahrenheit
-      ? convertToFahrenheit(day.tempmax)
-      : day.tempmax;
-
-    const minTemperature = isFahrenheit
-      ? convertToFahrenheit(day.tempmin)
-      : day.tempmin;
-
-    const unit = isFahrenheit ? "°F" : "°C";
-
     return card;
   });
 
   forecastContainer.replaceChildren(...forecastCards);
 }
+
 const searchForm = document.querySelector("#search-form");
 const locationInput = document.querySelector("#location-input");
 const statusMessage = document.querySelector("#status-message");
