@@ -1,17 +1,17 @@
-async function getWeatherData(location) {
-  const apiKey = process.env.WEATHER_API_KEY;
-
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&include=current&key=${apiKey}&contentType=json`;
+export async function getWeatherData(location) {
+  const apiKey = process.env.WEATHER_API_KEY; 
+  
+  // 1. Safely encode the user input
+  const encodedLocation = encodeURIComponent(location);
+  
+  // 2. Inject the encoded variable into the URL
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${encodedLocation}?unitGroup=metric&include=current&key=${apiKey}&contentType=json`;
 
   const response = await fetch(url);
-
+  
   if (!response.ok) {
-    throw new Error("Could not fetch weather data.");
+    throw new Error(`HTTP error! status: ${response.status}`);
   }
-
-  const weatherData = await response.json();
-
-  return weatherData;
+  
+  return await response.json();
 }
-
-export { getWeatherData };
