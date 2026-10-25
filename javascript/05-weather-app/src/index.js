@@ -9,6 +9,28 @@ let currentUnit = "C";
 let latestWeather = null;
 let latestForecast = [];
 
+function getWeatherType(conditions) {
+  const lowerConditions = conditions.toLowerCase();
+
+  if (lowerConditions.includes("rain") || lowerConditions.includes("drizzle")) {
+    return "rainy";
+  }
+  
+  if (lowerConditions.includes("snow")) {
+    return "snowy";
+  }
+  
+  if (lowerConditions.includes("cloud") || lowerConditions.includes("overcast")) {
+    return "cloudy";
+  }
+  
+  if (lowerConditions.includes("clear") || lowerConditions.includes("sun")) {
+    return "sunny";
+  }
+
+  return "default";
+}
+
 function displayCurrentWeather(weather) {
   const temperatureCelsius = weather.temperature;
   const feelsLikeCelsius = weather.feelsLike;
