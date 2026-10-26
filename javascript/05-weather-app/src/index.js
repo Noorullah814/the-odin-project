@@ -10,6 +10,11 @@ let latestWeather = null;
 let latestForecast = [];
 
 function getWeatherType(conditions) {
+  
+  if (typeof conditions !== "string" || conditions.trim() === "") {
+    return "default";
+  }
+
   const lowerConditions = conditions.toLowerCase();
 
   if (lowerConditions.includes("rain") || lowerConditions.includes("drizzle")) {
