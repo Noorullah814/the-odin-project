@@ -48,7 +48,14 @@ function displayCurrentWeather(weather) {
   const unit = isFahrenheit ? "°F" : "°C";
 
   document.querySelector("#location-name").textContent = weather.location;
+
   document.querySelector("#conditions").textContent = weather.conditions;
+
+  const weatherType = getWeatherType(weather.conditions);
+  
+  document.body.dataset.weather = weatherType;
+
+
   document.querySelector("#temperature").textContent =
     `${temperature.toFixed(1)}${unit}`;
 
