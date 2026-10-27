@@ -10,7 +10,6 @@ let latestWeather = null;
 let latestForecast = [];
 
 function getWeatherType(conditions) {
-  
   if (typeof conditions !== "string" || conditions.trim() === "") {
     return "default";
   }
@@ -20,15 +19,18 @@ function getWeatherType(conditions) {
   if (lowerConditions.includes("rain") || lowerConditions.includes("drizzle")) {
     return "rainy";
   }
-  
+
   if (lowerConditions.includes("snow")) {
     return "snowy";
   }
-  
-  if (lowerConditions.includes("cloud") || lowerConditions.includes("overcast")) {
+
+  if (
+    lowerConditions.includes("cloud") ||
+    lowerConditions.includes("overcast")
+  ) {
     return "cloudy";
   }
-  
+
   if (lowerConditions.includes("clear") || lowerConditions.includes("sun")) {
     return "sunny";
   }
@@ -57,9 +59,8 @@ function displayCurrentWeather(weather) {
   document.querySelector("#conditions").textContent = weather.conditions;
 
   const weatherType = getWeatherType(weather.conditions);
-  
-  document.body.dataset.weather = weatherType;
 
+  document.body.dataset.weather = weatherType;
 
   document.querySelector("#temperature").textContent =
     `${temperature.toFixed(1)}${unit}`;
@@ -128,7 +129,7 @@ fahrenheitButton.setAttribute("aria-pressed", "false");
 
 celsiusButton.addEventListener("click", () => {
   currentUnit = "C";
-  
+
   celsiusButton.setAttribute("aria-pressed", "true");
   fahrenheitButton.setAttribute("aria-pressed", "false");
 
@@ -140,7 +141,7 @@ celsiusButton.addEventListener("click", () => {
 
 fahrenheitButton.addEventListener("click", () => {
   currentUnit = "F";
-  
+
   fahrenheitButton.setAttribute("aria-pressed", "true");
   celsiusButton.setAttribute("aria-pressed", "false");
 
@@ -175,7 +176,8 @@ searchForm.addEventListener("submit", async (event) => {
       typeof data.currentConditions.feelslike !== "number" ||
       typeof data.currentConditions.humidity !== "number" ||
       typeof data.currentConditions.windspeed !== "number" ||
-      !Array.isArray(data.days)
+      !Array.isArray(data.days) ||
+      data.days.length === 0
     ) {
       throw new Error("Weather response is missing required data.");
     }
