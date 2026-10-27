@@ -123,8 +123,14 @@ const statusMessage = document.querySelector("#status-message");
 const celsiusButton = document.querySelector("#celsius-btn");
 const fahrenheitButton = document.querySelector("#fahrenheit-btn");
 
+celsiusButton.setAttribute("aria-pressed", "true");
+fahrenheitButton.setAttribute("aria-pressed", "false");
+
 celsiusButton.addEventListener("click", () => {
   currentUnit = "C";
+  
+  celsiusButton.setAttribute("aria-pressed", "true");
+  fahrenheitButton.setAttribute("aria-pressed", "false");
 
   if (latestWeather) {
     displayCurrentWeather(latestWeather);
@@ -134,6 +140,9 @@ celsiusButton.addEventListener("click", () => {
 
 fahrenheitButton.addEventListener("click", () => {
   currentUnit = "F";
+  
+  fahrenheitButton.setAttribute("aria-pressed", "true");
+  celsiusButton.setAttribute("aria-pressed", "false");
 
   if (latestWeather) {
     displayCurrentWeather(latestWeather);
