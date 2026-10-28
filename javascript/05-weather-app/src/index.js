@@ -182,6 +182,18 @@ searchForm.addEventListener("submit", async (event) => {
       throw new Error("Weather response is missing required data.");
     }
 
+    const isForecastValid = data.days.every(
+      (day) =>
+        typeof day.datetime === "string" &&
+        typeof day.conditions === "string" &&
+        typeof day.tempmax === "number" &&
+        typeof day.tempmin === "number"
+    );
+
+    if (!isForecastValid) {
+      throw new Error("One or more forecast days are missing required data.");
+    }
+
     const currentWeather = {
       location: data.resolvedAddress,
       conditions: data.currentConditions.conditions,
