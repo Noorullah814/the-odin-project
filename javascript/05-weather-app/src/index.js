@@ -162,6 +162,17 @@ searchForm.addEventListener("submit", async (event) => {
 
   const searchButton = searchForm.querySelector('button[type="submit"]');
 
+  latestWeather = null;
+  latestForecast = [];
+  
+  document.querySelector("#forecast-container").textContent = "";
+  document.querySelector("#location-name").textContent = "";
+  document.querySelector("#conditions").textContent = "";
+  document.querySelector("#temperature").textContent = "";
+  document.querySelector("#feels-like").textContent = "";
+  document.querySelector("#humidity").textContent = "";
+  document.querySelector("#wind-speed").textContent = "";
+
   statusMessage.textContent = `Loading weather for ${location}...`;
   searchButton.disabled = true;
   searchButton.textContent = "Loading...";
