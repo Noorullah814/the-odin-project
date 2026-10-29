@@ -46,26 +46,32 @@ body {
 }
 
 .weather-app {
-  width: min(900px, 92%);
-  margin: 40px auto;
-  padding: 28px;
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgb(23 32 51 / 10%);
+  width: min(1180px, 92%);
+  margin: 32px auto;
+  padding: 36px;
+  background: rgb(17 26 46 / 78%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 24%);
+  backdrop-filter: blur(20px);
 }
 
 .app-header {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .app-header h1 {
-  margin-bottom: 8px;
-  font-size: 2.2rem;
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
 }
 
-.app-header p,
-#status-message {
-  color: #64748b;
+.app-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
 }
 
 #search-form label {
