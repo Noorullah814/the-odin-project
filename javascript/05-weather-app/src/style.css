@@ -147,10 +147,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-#status-message {
-  margin: 24px 0;
-}
-
 .current-weather {
   padding: 32px;
   border: 1px solid var(--color-border);
@@ -267,53 +263,6 @@ button:disabled {
 
 .forecast-card p {
   margin: 10px 0;
-}
-
-.forecast-card p:first-child {
-  color: var(--color-text);
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.forecast-card p:nth-child(2) {
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-  text-transform: capitalize;
-}
-
-.forecast-card p:nth-child(3),
-.forecast-card p:nth-child(4) {
-  color: var(--color-text);
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.forecast-card p:first-child {
-  color: #172033;
-  font-weight: 700;
-}
-
-.forecast-card p:nth-child(2) {
-  color: #64748b;
-  font-size: 0.9rem;
-}
-
-.forecast-card p:nth-child(3),
-.forecast-card p:nth-child(4) {
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.app-footer {
-  margin-top: 32px;
-  text-align: center;
-  color: #64748b;
-  font-size: 0.9rem;
 }
 
 #status-message {
