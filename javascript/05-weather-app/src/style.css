@@ -193,19 +193,38 @@ button:disabled {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
-  margin: 20px 0;
+  margin: 28px 0 0;
 }
 
 .weather-details > div {
-  padding: 18px;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.weather-details > div:hover {
+  transform: translateY(-3px);
+  border-color: rgb(99 102 241 / 40%);
+  background: #1b2944;
 }
 
 .weather-details h3 {
-  margin-top: 0;
-  color: #64748b;
-  font-size: 0.95rem;
+  margin: 0 0 10px;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.weather-details p {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .forecast-section {
