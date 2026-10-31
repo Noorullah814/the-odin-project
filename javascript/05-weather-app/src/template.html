@@ -36,31 +36,40 @@
       </p>
 
       <section id="weather-container" aria-live="polite">
-        <div class="current-weather">
-          <h2 id="location-name">Location</h2>
-          <p id="conditions">Weather conditions will appear here.</p>
-          <p id="temperature">--°</p>
-          <p id="feels-like">Feels like --°</p>
-          <div class="temperature-toggle">
-            <button type="button" id="celsius-btn">°C</button>
-            <button type="button" id="fahrenheit-btn">°F</button>
-          </div>
-        </div>
+        <div class="weather-overview">
+          <div class="current-weather">
+            <h2 id="location-name">Location</h2>
+            <p id="conditions">Weather conditions will appear here.</p>
+            <p id="temperature">--°</p>
+            <p id="feels-like">Feels like --°</p>
 
-        <div class="weather-details">
-          <div>
-            <h3>Humidity</h3>
-            <p id="humidity">--%</p>
+            <div class="temperature-toggle">
+              <button type="button" id="celsius-btn" aria-pressed="true">
+                °C
+              </button>
+
+              <button type="button" id="fahrenheit-btn" aria-pressed="false">
+                °F
+              </button>
+            </div>
           </div>
 
-          <div>
-            <h3>Wind</h3>
-            <p id="wind-speed">--</p>
+          <div class="weather-details">
+            <div>
+              <h3>Humidity</h3>
+              <p id="humidity">--%</p>
+            </div>
+
+            <div>
+              <h3>Wind</h3>
+              <p id="wind-speed">--</p>
+            </div>
           </div>
         </div>
 
         <div class="forecast-section">
           <h2>Upcoming Forecast</h2>
+
           <div id="forecast-container">
             <p>Forecast information will appear here.</p>
           </div>
