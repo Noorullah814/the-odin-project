@@ -337,8 +337,16 @@ button:disabled {
     padding: 24px;
   }
 
+  .weather-overview {
+    grid-template-columns: 1fr;
+  }
+
   .current-weather {
     padding: 24px;
+  }
+
+  .weather-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   #forecast-container {
