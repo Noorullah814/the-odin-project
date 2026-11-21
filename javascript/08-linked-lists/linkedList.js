@@ -133,6 +133,59 @@ class LinkedList {
     }
     return result + "null";
   }
-}
 
+  //insertAt
+  insertAt(index, ...values) {
+    const listSize = this.size();
+
+    if (index < 0 || index > listSize) {
+      throw new RangeError("Index out of bounds");
+    }
+
+    if (values.length === 0) {
+      return;
+    }
+
+    const firstNewNode = new Node(values[0]);
+    let lastNewNode = firstNewNode;
+
+    for (let i = 1; i < values.length; i++) {
+      lastNewNode.nextNode = new Node(values[i]);
+      lastNewNode = lastNewNode.nextNode;
+    }
+
+    if (index === 0) {
+      lastNewNode.nextNode = this.headNode;
+      this.headNode = firstNewNode;
+      return;
+    }
+
+    let prev = this.headNode;
+    for (let i = 0; i < index - 1; i++) {
+      prev = prev.nextNode;
+    }
+
+    lastNewNode.nextNode = prev.nextNode;
+    prev.nextNode = firstNewNode;
+  }
+
+  //removeAt(index)
+  removeAt(index) {
+    if (index < 0 || index >= this.size()) {
+      throw new RangeError("Index out of bounds");
+    }
+
+    if (index === 0) {
+      this.headNode = this.headNode.nextNode;
+      return;
+    }
+
+    let prev = this.headNode;
+    for (let i = 0; i < index - 1; i++) {
+      prev = prev.nextNode;
+    }
+
+    prev.nextNode = prev.nextNode.nextNode;
+  }
+}
 export default LinkedList;
