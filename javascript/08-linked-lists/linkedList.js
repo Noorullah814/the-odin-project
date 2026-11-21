@@ -52,7 +52,7 @@ class LinkedList {
     if (this.headNode === null) {
       return undefined;
     }
-    
+
     let current = this.headNode;
     while (current.nextNode !== null) {
       current = current.nextNode;
@@ -77,6 +77,45 @@ class LinkedList {
       currentIndex++;
     }
     return undefined;
+  }
+
+  //pop
+  pop() {
+    if (this.headNode === null) {
+      return undefined;
+    }
+
+    const removedValue = this.headNode.value;
+    this.headNode = this.headNode.nextNode;
+
+    return removedValue;
+  }
+
+  //contains
+  contains(value) {
+    let current = this.headNode;
+    while (current !== null) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.nextNode;
+    }
+    return false;
+  }
+
+  //find index
+  findIndex(value) {
+    let current = this.headNode;
+    let currentIndex = 0;
+
+    while (current !== null) {
+      if (current.value === value) {
+        return currentIndex;
+      }
+      current = current.nextNode;
+      currentIndex++;
+    }
+    return -1;
   }
 }
 
