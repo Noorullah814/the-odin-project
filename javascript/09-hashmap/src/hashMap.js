@@ -26,7 +26,7 @@ class HashMap {
     const index = this.hash(key);
     this.checkBounds(index);
 
-    if (!this.checkBounds[index]) {
+    if (!this.buckets[index]) {
       this.buckets[index] = [];
     }
 
@@ -38,6 +38,61 @@ class HashMap {
     }
 
     this.buckets[index].push([key, value]);
+  }
+
+  get(key) {
+    const index = this.hash(key);
+    this.checkBounds(index);
+    const bucket = this.buckets[index];
+
+    if (!bucket) {
+      return undefined;
+    }
+
+    for (const entry of bucket) {
+      if (entry[0] === key) {
+        return entry[1];
+      }
+    }
+
+    return undefined;
+  }
+
+  has(key) {
+    const index = this.hash(key);
+    this.checkBounds(index);
+    const bucket = this.buckets[index];
+
+    if (!bucket) {
+      return false;
+    }
+
+    for (const entry of bucket) {
+      if (entry[0] === key) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  remove(key) {
+    const index = this.hash(key);
+    this.checkBounds(index);
+    const bucket = this.buckets[index];
+
+    if (!bucket) {
+      return false;
+    }
+
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        bucket.splice(i, 1);
+        return true;
+      }
+    }
+
+    return false;
   }
 }
 
