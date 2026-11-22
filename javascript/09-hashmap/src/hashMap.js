@@ -12,15 +12,33 @@ class HashMap {
   }
 
   hash(key) {
-  let hashCode = 0;
+    let hashCode = 0;
 
-  const primeNumber = 31;
-  for (let i = 0; i < key.length; i++) {
-    hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.capacity;
+    const primeNumber = 31;
+    for (let i = 0; i < key.length; i++) {
+      hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.capacity;
+    }
+
+    return hashCode;
   }
 
-  return hashCode;
-}
+  set(key, value) {
+    const index = this.hash(key);
+    this.checkBounds(index);
+
+    if (!this.checkBounds[index]) {
+      this.buckets[index] = [];
+    }
+
+    for (const entry of this.buckets[index]) {
+      if (entry[0] === key) {
+        entry[1] = value;
+        return;
+      }
+    }
+
+    this.buckets[index].push([key, value]);
+  }
 }
 
 export default HashMap;
