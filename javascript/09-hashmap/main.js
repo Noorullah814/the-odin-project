@@ -1,4 +1,5 @@
 import HashMap from "./src/hashMap.js";
+import HashSet from "./src/hashSet.js";
 
 // 1. Empty map edge cases
 const emptyMap = new HashMap();
@@ -79,3 +80,31 @@ try {
 test.clear();
 console.log("length() after clear():", test.length()); // 0
 console.log("entries() after clear():", test.entries()); // []
+
+
+
+console.log("\n--- 7. Extra Credit: HashSet ---");
+const set = new HashSet();
+const sampleKeys = [
+  "apple", "banana", "carrot", "dog", "elephant", "frog",
+  "grape", "hat", "ice cream", "jacket", "kite", "lion"
+];
+
+for (const key of sampleKeys) {
+  set.add(key);
+}
+
+// Adding duplicates should not increase length or trigger resize
+set.add("apple");
+set.add("lion");
+console.log("length() at 0.75 load (with duplicates ignored):", set.length()); // 12
+console.log("capacity:", set.capacity); // 16
+
+// Trigger resize
+set.add("moon");
+console.log("length() after adding 'moon':", set.length()); // 13
+console.log("new capacity:", set.capacity); // 32
+console.log("has('moon'):", set.has("moon")); // true
+console.log("remove('frog'):", set.remove("frog")); // true
+console.log("has('frog'):", set.has("frog")); // false
+console.log("keys():", set.keys());
