@@ -94,6 +94,64 @@ class HashMap {
 
     return false;
   }
+
+  length() {
+    let count = 0;
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        count += bucket.length;
+      }
+    }
+
+    return count;
+  }
+
+  clear() {
+    this.buckets = new Array(this.capacity);
+  }
+
+  keys() {
+    const allKeys = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        for (const entry of bucket) {
+          allKeys.push(entry[0]);
+        }
+      }
+    }
+
+    return allKeys;
+  }
+
+  values() {
+    const allValues = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        for (const entry of bucket) {
+          allValues.push(entry[1]);
+        }
+      }
+    }
+
+    return allValues;
+  }
+
+  entries() {
+    const allEntries = [];
+
+    for (const bucket of this.buckets) {
+      if (bucket) {
+        for (const entry of bucket) {
+          allEntries.push([entry[0], entry[1]]);
+        }
+      }
+    }
+
+    return allEntries;
+  }
 }
 
 export default HashMap;
