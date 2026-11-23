@@ -38,6 +38,10 @@ class HashMap {
     }
 
     this.buckets[index].push([key, value]);
+
+    if (this.length() / this.capacity > this.loadFactor) {
+      this.resize();
+    }
   }
 
   get(key) {
@@ -151,6 +155,16 @@ class HashMap {
     }
 
     return allEntries;
+  }
+
+  resize() {
+    const oldEntries = this.entries();
+    this.capacity *= 2;
+    this.buckets = new Array(this.capacity);
+
+    for (const [key, value] of oldEntries) {
+      this.set(key, value);
+    }
   }
 }
 
