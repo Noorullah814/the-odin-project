@@ -213,6 +213,37 @@ class Tree {
 
     return undefined;
   }
+
+  isBalanced() {
+    return this.#checkBalance(this.root).balanced;
+  }
+
+  #checkBalance(node) {
+    if (node === null) {
+      return { balanced: true, height: -1 };
+    }
+
+    const left = this.#checkBalance(node.left);
+    if (!left.balanced) {
+      return { balanced: false, height: -1 };
+    }
+
+    const right = this.#checkBalance(node.right);
+    if (!right.balanced) {
+      return { balanced: false, height: -1 };
+    }
+
+    const balanced = Math.abs(left.height - right.height) <= 1;
+    const height = 1 + Math.max(left.height, right.height);
+
+    return { balanced, height };
+  }
+
+  rebalance() {
+    const values = [];
+    this.inOrderForEach((value) => values.push(value));
+    this.root = this.#buildTree(values);
+  }
 }
 
 export default Tree;
