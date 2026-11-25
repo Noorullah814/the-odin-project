@@ -107,6 +107,73 @@ class Tree {
     node.right = this.#deleteRecursive(node.right, successor.data);
     return node;
   }
+
+  levelOrderForEach(callback) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required.");
+    }
+
+    if (this.root === null) {
+      return;
+    }
+
+    const queue = [this.root];
+    let head = 0;
+
+    while (head < queue.length) {
+      const current = queue[head++];
+      callback(current.data);
+
+      if (current.left !== null) {
+        queue.push(current.left);
+      }
+      if (current.right !== null) {
+        queue.push(current.right);
+      }
+    }
+  }
+
+  inOrderForEach(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required.");
+    }
+
+    if (node === null) {
+      return;
+    }
+
+    this.inOrderForEach(callback, node.left);
+    callback(node.data);
+    this.inOrderForEach(callback, node.right);
+  }
+
+  preOrderForEach(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required.");
+    }
+
+    if (node === null) {
+      return;
+    }
+
+    callback(node.data);
+    this.preOrderForEach(callback, node.left);
+    this.preOrderForEach(callback, node.right);
+  }
+
+  postOrderForEach(callback, node = this.root) {
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required.");
+    }
+
+    if (node === null) {
+      return;
+    }
+
+    this.postOrderForEach(callback, node.left);
+    this.postOrderForEach(callback, node.right);
+    callback(node.data);
+  }
 }
 
 export default Tree;
